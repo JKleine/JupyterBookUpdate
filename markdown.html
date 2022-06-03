@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Markdown Files &#8212; HSI Documentation</title>
+    <title>Setting Up Ubuntu Virtual Machine &#8212; HSI Documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="next" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
     <link rel="prev" title="NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -102,12 +102,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Markdown Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Content with notebooks
+   Setting Up Ubuntu Virtual Machine
   </a>
  </li>
  <li class="toctree-l1">
@@ -208,23 +203,23 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#downloads">
+   Downloads
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directivs">
-   Sample Roles and Directivs
+  <a class="reference internal nav-link" href="#step-1-create-a-new-virtual-machine">
+   Step 1: Create a new Virtual Machine
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
+  <a class="reference internal nav-link" href="#step-2-selecting-ubuntu-for-the-vm">
+   Step 2: Selecting Ubuntu for the VM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#step-3-installing-ubuntu">
+   Step 3: Installing Ubuntu
   </a>
  </li>
 </ul>
@@ -237,7 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Markdown Files</h1>
+                <h1>Setting Up Ubuntu Virtual Machine</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -248,23 +243,23 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-myst">
-   What is MyST?
+  <a class="reference internal nav-link" href="#downloads">
+   Downloads
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-roles-and-directivs">
-   Sample Roles and Directivs
+  <a class="reference internal nav-link" href="#step-1-create-a-new-virtual-machine">
+   Step 1: Create a new Virtual Machine
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#citations">
-   Citations
+  <a class="reference internal nav-link" href="#step-2-selecting-ubuntu-for-the-vm">
+   Step 2: Selecting Ubuntu for the VM
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learn-more">
-   Learn more
+  <a class="reference internal nav-link" href="#step-3-installing-ubuntu">
+   Step 3: Installing Ubuntu
   </a>
  </li>
 </ul>
@@ -276,58 +271,71 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="markdown-files">
-<h1>Markdown Files<a class="headerlink" href="#markdown-files" title="Permalink to this headline">¶</a></h1>
-<p>Whether you write your book’s content in Jupyter Notebooks (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) or
-in regular markdown files (<code class="docutils literal notranslate"><span class="pre">.md</span></code>), you’ll write in the same flavor of markdown
-called <strong>MyST Markdown</strong>.
-This is a simple file to help you get started and show off some syntax.</p>
-<section id="what-is-myst">
-<h2>What is MyST?<a class="headerlink" href="#what-is-myst" title="Permalink to this headline">¶</a></h2>
-<p>MyST stands for “Markedly Structured Text”. It
-is a slight variation on a flavor of markdown called “CommonMark” markdown,
-with small syntax extensions to allow you to write <strong>roles</strong> and <strong>directives</strong>
-in the Sphinx ecosystem.</p>
-<p>For more about MyST, see <a class="reference external" href="https://jupyterbook.org/content/myst.html">the MyST Markdown Overview</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="setting-up-ubuntu-virtual-machine">
+<h1>Setting Up Ubuntu Virtual Machine<a class="headerlink" href="#setting-up-ubuntu-virtual-machine" title="Permalink to this headline">¶</a></h1>
+<p>To make our process as easy as possible to follow, we try to work in a linux envoronment.
+Here is a guide to installing Ubuntu for you to use going forwards.</p>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Permalink to this headline">¶</a></h2>
+<p>Go to <a class="reference external" href="https://ubuntu.com/download/desktop">ubuntu.com</a> and download the latest iso version.</p>
+<p>Then go to <a class="reference external" href="https://www.virtualbox.org/">virtualbox.org</a> and download the latest version. You may use VMware if you prefer that.</p>
+<p>Once Virtual Box is downloaded go through the steps and install it.</p>
 </section>
-<section id="sample-roles-and-directivs">
-<h2>Sample Roles and Directivs<a class="headerlink" href="#sample-roles-and-directivs" title="Permalink to this headline">¶</a></h2>
-<p>Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but <strong>roles are written in one line</strong>, whereas
-<strong>directives span many lines</strong>. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.</p>
-<p>Here is a “note” directive:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Here is a note</p>
-</div>
-<p>It will be rendered in a special box when you build your book.</p>
-<p>Here is an inline directive to refer to a document: <a class="reference internal" href="markdown-notebooks.html"><span class="doc">Notebooks with MyST Markdown</span></a>.</p>
+<section id="step-1-create-a-new-virtual-machine">
+<h2>Step 1: Create a new Virtual Machine<a class="headerlink" href="#step-1-create-a-new-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<p>Open Virtual Box</p>
+<p>Click on “Machine” from the top toolbar, then click on “New”.</p>
+<p>Give a name to your virtual machine, then select the folder where you want to store it or keep it default. <a class="reference internal" href="#figure1"><span class="std std-ref">(Figure 1)</span></a></p>
+<figure class="align-default" id="figure1">
+<a class="reference internal image-reference" href="_images/figure1.png"><img alt="_images/figure1.png" src="_images/figure1.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">.</span><a class="headerlink" href="#figure1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Allocate Memory size (Minimum: 2000MB, Recommended: 4000MB) [(Figure 2)] (figure2)</p>
+<figure class="align-default" id="figure2">
+<a class="reference internal image-reference" href="_images/figure2.png"><img alt="_images/figure2.png" src="_images/figure2.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">.</span><a class="headerlink" href="#figure2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Select “Create a Virtual Hard Disk”</p>
+<p>Select VDI (Virtual Box Disk Image)</p>
+<p>Select Dynamically allocated
+For the size, at least 25GB is recommended</p>
 </section>
-<section id="citations">
-<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
-<p>You can also cite references that are stored in a <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> file. For example,
-the following syntax: <code class="docutils literal notranslate"><span class="pre">{cite}`holdgraf_evidence_2014`</span></code> will render like
-this: <span id="id1">[<a class="reference internal" href="#id3" title="Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In International Conference on Cognitive Neuroscience. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.">HdHPK14</a>]</span>.</p>
-<p>Moreover, you can insert a bibliography into your page with this syntax:
-The <code class="docutils literal notranslate"><span class="pre">{bibliography}</span></code> directive must be used for all the <code class="docutils literal notranslate"><span class="pre">{cite}</span></code> roles to
-render properly.
-For example, if the references for your book are stored in <code class="docutils literal notranslate"><span class="pre">references.bib</span></code>,
-then the bibliography is inserted with:</p>
-<div class="docutils container" id="id2">
-<dl class="citation">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">HdHPK14</a></span></dt>
-<dd><p>Christopher Ramsay Holdgraf, Wendy de Heer, Brian N. Pasley, and Robert T. Knight. Evidence for Predictive Coding in Human Auditory Cortex. In <em>International Conference on Cognitive Neuroscience</em>. Brisbane, Australia, Australia, 2014. Frontiers in Neuroscience.</p>
-</dd>
-</dl>
-</div>
+<section id="step-2-selecting-ubuntu-for-the-vm">
+<h2>Step 2: Selecting Ubuntu for the VM<a class="headerlink" href="#step-2-selecting-ubuntu-for-the-vm" title="Permalink to this headline">¶</a></h2>
+<p>Select your VM on the left side</p>
+<p>On the top tab select Settings</p>
+<p>Go to System &gt; Processor, change it from 1 to 2 <a class="reference internal" href="#figure3"><span class="std std-ref">(Figure 3)</span></a></p>
+<figure class="align-default" id="figure3">
+<a class="reference internal image-reference" href="_images/figure3.png"><img alt="_images/figure3.png" src="_images/figure3.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">.</span><a class="headerlink" href="#figure3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Now go to Storage and select the “Empty” CD icon <a class="reference internal" href="#figure4"><span class="std std-ref">(Figure 4)</span></a></p>
+<figure class="align-default" id="figure4">
+<a class="reference internal image-reference" href="_images/figure4.png"><img alt="_images/figure4.png" src="_images/figure4.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">.</span><a class="headerlink" href="#figure4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>On the right side, you will see another CD icon next to “IDE Secondary Master,” select it then choose “Choose a disk file” then select the ISO you downloaded earlier. <a class="reference internal" href="#figure5"><span class="std std-ref">(Figure 5)</span></a></p>
+<figure class="align-default" id="figure5">
+<a class="reference internal image-reference" href="_images/figure5.png"><img alt="_images/figure5.png" src="_images/figure5.png" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">.</span><a class="headerlink" href="#figure5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>After that select “OK” then “Start” your VM</p>
 </section>
-<section id="learn-more">
-<h2>Learn more<a class="headerlink" href="#learn-more" title="Permalink to this headline">¶</a></h2>
-<p>This is just a simple starter to get you started.
-You can learn a lot more at <a class="reference external" href="https://jupyterbook.org">jupyterbook.org</a>.</p>
+<section id="step-3-installing-ubuntu">
+<h2>Step 3: Installing Ubuntu<a class="headerlink" href="#step-3-installing-ubuntu" title="Permalink to this headline">¶</a></h2>
+<p>The installation process is pretty self-explanitory.
+You are going to want to select “Install Ubuntu” on the first screen, then “Install third-party software for graphics …” on the second, then “Install Now”. You will have to fill out a form later, and then you are good to go.</p>
+<p>It is recommended that you save a snapshot after Ubuntu is properly installed so you don’t have to keep going through the process.</p>
 </section>
 </section>
 
@@ -363,10 +371,10 @@ You can learn a lot more at <a class="reference external" href="https://jupyterb
             <p class="prev-next-title">NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="notebooks.html" title="next page">
+    <a class='right-next' id="next-link" href="markdown-notebooks.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Content with notebooks</p>
+        <p class="prev-next-title">Notebooks with MyST Markdown</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
