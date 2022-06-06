@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation &#8212; HSI Documentation</title>
+    <title>Github Commands &#8212; HSI Documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Setting Up Ubuntu Virtual Machine" href="UbuntuSetup.html" />
+    <link rel="prev" title="Running DeepHyperX from a SIF File" href="runningsif.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -92,13 +92,13 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="UbuntuSetup.html">
    Setting Up Ubuntu Virtual Machine
@@ -129,8 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
    Running DeepHyperX from a SIF File
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="github.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Github Commands
   </a>
  </li>
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/github.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -195,7 +195,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Fgithub.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -216,6 +216,39 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clone-a-repository">
+   clone a repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-to-a-repository">
+   adding to a repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#branches-and-merging">
+   Branches and merging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#share-and-update">
+   Share and Update
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temporary-commits">
+   Temporary Commits
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -223,30 +256,134 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation</h1>
+                <h1>Github Commands</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clone-a-repository">
+   clone a repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-to-a-repository">
+   adding to a repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#branches-and-merging">
+   Branches and merging
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#share-and-update">
+   Share and Update
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temporary-commits">
+   Temporary Commits
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="nsf-research-project-a-modular-multilayer-framework-for-real-time-hyperspectral-image-segmentation-documentation">
-<h1>NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation<a class="headerlink" href="#nsf-research-project-a-modular-multilayer-framework-for-real-time-hyperspectral-image-segmentation-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="UbuntuSetup.html">Setting Up Ubuntu Virtual Machine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modelreferences.html">Models and Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="singularity.html">Installing Singularity and Singularity-Compose</a></li>
-<li class="toctree-l1"><a class="reference internal" href="diftosif.html">Creating a SIF container from a .def File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHyperX from a SIF File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="github.html">Github Commands</a></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="github-commands">
+<h1>Github Commands<a class="headerlink" href="#github-commands" title="Permalink to this headline">¶</a></h1>
+<section id="clone-a-repository">
+<h2>clone a repository<a class="headerlink" href="#clone-a-repository" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="n">insert</span> <span class="n">url</span> <span class="n">here</span><span class="p">]</span>
+</pre></div>
 </div>
+</section>
+<section id="adding-to-a-repository">
+<h2>adding to a repository<a class="headerlink" href="#adding-to-a-repository" title="Permalink to this headline">¶</a></h2>
+<p>Adds a file as it is now to your next commit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="p">[</span><span class="n">file</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Unstage a file keeping changes in working directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="p">[</span><span class="n">file</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Commit your staged content as a commit snapshot</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;[message]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="branches-and-merging">
+<h2>Branches and merging<a class="headerlink" href="#branches-and-merging" title="Permalink to this headline">¶</a></h2>
+<p>List branches</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span>
+</pre></div>
+</div>
+<p>Create a new branch at the current commit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="p">[</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Switch to another branch and check it out into your directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span>
+</pre></div>
+</div>
+<p>Merge the specified branch’s history into current branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="p">[</span><span class="n">branch</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Show all commits in current branch’s history</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span>
+</pre></div>
+</div>
+</section>
+<section id="share-and-update">
+<h2>Share and Update<a class="headerlink" href="#share-and-update" title="Permalink to this headline">¶</a></h2>
+<p>Add a git URL as an alias</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Merge a remote branch into your current branch to bring it up to date</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span> <span class="p">[</span><span class="n">alias</span><span class="p">]</span><span class="o">/</span><span class="p">[</span><span class="n">branch</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Transmit local branch commits to remote repository branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="p">[</span><span class="n">branch</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Fetch and merge any commits from the tracking remote branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</section>
+<section id="temporary-commits">
+<h2>Temporary Commits<a class="headerlink" href="#temporary-commits" title="Permalink to this headline">¶</a></h2>
+<p>Save modified and staged changes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span>
+</pre></div>
+</div>
+<p>List of stack-ordered stashed file changes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>Write working from top of stash stack</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">pop</span>
+</pre></div>
+</div>
+<p>Discard changes from top of stash stack</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">drop</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -273,13 +410,13 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="UbuntuSetup.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Setting Up Ubuntu Virtual Machine</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="runningsif.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Running DeepHyperX from a SIF File</p>
+        </div>
     </a>
 </div>
             

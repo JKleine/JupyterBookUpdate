@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Here’s my sample title &#8212; HSI Documentation</title>
+    <title>Running DeepHyperX from a SIF File &#8212; HSI Documentation</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -54,7 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Notebooks with MyST Markdown" href="markdown-notebooks.html" />
+    <link rel="next" title="Github Commands" href="github.html" />
+    <link rel="prev" title="Creating a SIF container from a .def File" href="diftosif.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,18 +101,38 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown.html">
+  <a class="reference internal" href="UbuntuSetup.html">
    Setting Up Ubuntu Virtual Machine
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="markdown-notebooks.html">
-   Notebooks with MyST Markdown
+  <a class="reference internal" href="docker.html">
+   Docker
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelreferences.html">
+   Models and Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="singularity.html">
+   Installing Singularity and Singularity-Compose
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diftosif.html">
+   Creating a SIF container from a .def File
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Here’s my sample title
+   Running DeepHyperX from a SIF File
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="github.html">
+   Github Commands
   </a>
  </li>
 </ul>
@@ -155,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/mymarkdownfile.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/runningsif.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -175,7 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Fmymarkdownfile.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Frunningsif.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -196,19 +217,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-s-my-first-section">
-   Here’s my first section
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -216,37 +224,35 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Here’s my sample title</h1>
+                <h1>Running DeepHyperX from a SIF File</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#here-s-my-first-section">
-   Here’s my first section
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="here-s-my-sample-title">
-<h1>Here’s my sample title<a class="headerlink" href="#here-s-my-sample-title" title="Permalink to this headline">¶</a></h1>
-<p>This is some sample text.</p>
-<section id="here-s-my-first-section">
-<span id="section-label"></span><h2>Here’s my first section<a class="headerlink" href="#here-s-my-first-section" title="Permalink to this headline">¶</a></h2>
-<p>Here is a <a class="reference internal" href="intro.html"><span class="doc std std-doc">reference to the intro</span></a>. Here is a reference to <a class="reference internal" href="#section-label"><span class="std std-ref">Here’s my first section</span></a>.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="running-deephyperx-from-a-sif-file">
+<h1>Running DeepHyperX from a SIF File<a class="headerlink" href="#running-deephyperx-from-a-sif-file" title="Permalink to this headline">¶</a></h1>
+<p>Take your .sif file and place it into a new folder. Go to that folder in your terminal and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Now you should run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span> <span class="n">test</span><span class="o">.</span><span class="n">sif</span>
+</pre></div>
+</div>
+<p>If you are using a container made using the three-layer method for instance from <a class="reference external" href="https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer">5MI7th3MI6’s</a> or <a class="reference external" href="https://github.com/semihdinc/DeepHyperX">semihdinc’s</a> repository.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">test</span><span class="o">.</span><span class="n">sif</span>
+</pre></div>
+</div>
+<p>Now you can run <a class="reference external" href="http://main.py">main.py</a> as usual for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">SVM</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">IndianPines</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.8</span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -274,12 +280,19 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="markdown-notebooks.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="diftosif.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Notebooks with MyST Markdown</p>
+            <p class="prev-next-title">Creating a SIF container from a .def File</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="github.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Github Commands</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
