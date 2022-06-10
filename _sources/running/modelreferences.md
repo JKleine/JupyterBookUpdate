@@ -1,6 +1,8 @@
 # Models and Datasets
 ## Models:
 
+threeLayer (Our Model)
+
 SVM (linear)
 
 SVM_grid (grid search on linear, poly and RBF kernels)
@@ -30,6 +32,8 @@ liu (3D semi-supervised CNN)
 mou (1D RNN)
 
 ## Datasets:
+
+AUM
 
 PaviaC
 
