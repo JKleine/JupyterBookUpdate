@@ -43,7 +43,7 @@ jupyter-book build JupyterBook/
 ```
 You need to delete the _build folder because the html files already in there will not have their table of contents updated and you will have added the page with no way to visit it, so they must be recreated. 
 
-You only need to delete the _build file when you add to the _toc.yml
+You only need to delete the _build folder when you add to the _toc.yml
 
 ### Adding images
 
