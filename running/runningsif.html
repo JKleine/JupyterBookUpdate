@@ -279,6 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data</span>
 </pre></div>
 </div>
+<p>Note: if you are using the AUM dataset located in the <a class="reference external" href="https://github.com/Fennrii/AUM-UNG-HSI-Repository">AUM-UNG-HSI-Repository</a> you will have to manually place the <code class="docutils literal notranslate"><span class="pre">Datasets</span></code> folder into the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder you just created. Looking like <code class="docutils literal notranslate"><span class="pre">/data/Datasets/AUM/</span></code>gt.mat dataset.mat</p>
 <p>Now you should run the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span> <span class="n">test</span><span class="o">.</span><span class="n">sif</span>
 </pre></div>

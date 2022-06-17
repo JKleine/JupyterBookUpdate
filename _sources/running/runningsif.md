@@ -11,6 +11,8 @@ Take your .sif file and place it into a new folder. Go to that folder in your te
 mkdir data
 ```
 
+Note: if you are using the AUM dataset located in the [AUM-UNG-HSI-Repository](https://github.com/Fennrii/AUM-UNG-HSI-Repository) you will have to manually place the `Datasets` folder into the `data` folder you just created. Looking like `/data/Datasets/AUM/`gt.mat dataset.mat
+
 Now you should run the command:
 ```
 singularity run --bind ./data:/mnt test.sif

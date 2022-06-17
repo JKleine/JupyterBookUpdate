@@ -1,6 +1,7 @@
 # Github Branches
 
 ## Making a branch of a Github repository
+For this repository, please let Andrew axsato7395@ung.edu know your github username so he can add you as a contributor.
 
 First go to the [repository that you will be working on](https://github.com/Fennrii/AUM-UNG-HSI-Repository)
 
