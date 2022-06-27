@@ -30,7 +30,13 @@ echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
 ```
 source ~/.bashrc
 ```
-
+```
+sudo apt install golang-go
+```
+To check that it is installed do the command
+```
+go version
+```
 
 
 Clone Singularity
