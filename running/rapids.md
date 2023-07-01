@@ -10,7 +10,7 @@ Run the container
 ```
 apptainer run rapidsai_23.04-cuda11.8-runtime-ubuntu22.04-py3.10.sif
 ```
-Use shell command to access the shell or executive commands within it
+Use shell command to access the shell or executive commands within it.
 ```
 apptainer shell rapidsai_23.04-cuda11.8-runtime-ubuntu22.04-py3.10.sif
 ```
