@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'running/apptainer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Github Commands" href="../git/github.html" />
+    <link rel="next" title="Rapids" href="rapids.html" />
     <link rel="prev" title="Models and Datasets" href="modelreferences.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,6 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHyperX from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelreferences.html">Models and Datasets</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Apptainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rapids.html">Rapids</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Github and Documentation</span></p>
 <ul class="nav bd-sidenav">
@@ -382,21 +383,60 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="apptainer">
 <h1>Apptainer<a class="headerlink" href="#apptainer" title="Permalink to this heading">#</a></h1>
-<p>Apptainer is the new version of Singularity.</p>
+<p>Apptainer is the new version of Singularity. Directions are based on a Mint 21.1 VM with Miniconda installed.</p>
 <section id="installing-apptainer">
 <h2>Installing Apptainer<a class="headerlink" href="#installing-apptainer" title="Permalink to this heading">#</a></h2>
 <p>To install Apptainer on a new Linux VM:</p>
+<p>Ensure repositories are up-to-date</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">apt</span><span class="o">-</span><span class="n">transport</span><span class="o">-</span><span class="n">https</span> <span class="n">ca</span><span class="o">-</span><span class="n">certificates</span> <span class="n">curl</span> <span class="n">gnupg</span> <span class="n">lsb</span><span class="o">-</span><span class="n">release</span>
-
-<span class="n">curl</span> <span class="o">-</span><span class="n">fsSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">gpg</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">gpg</span> <span class="o">--</span><span class="n">dearmor</span> <span class="o">-</span><span class="n">o</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">keyrings</span><span class="o">/</span><span class="n">docker</span><span class="o">-</span><span class="n">archive</span><span class="o">-</span><span class="n">keyring</span><span class="o">.</span><span class="n">gpg</span>
-
-<span class="n">echo</span> \  <span class="s2">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \  $(lsb_release -cs) stable&quot;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">list</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="n">docker</span><span class="o">-</span><span class="n">ce</span><span class="o">-</span><span class="n">cli</span> <span class="n">containerd</span><span class="o">.</span><span class="n">io</span>
+</pre></div>
+</div>
+<p>Install debian packages for dependencies</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
+    <span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
+    <span class="n">libseccomp</span><span class="o">-</span><span class="n">dev</span> \
+    <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> \
+    <span class="n">uidmap</span> \
+    <span class="n">squashfs</span><span class="o">-</span><span class="n">tools</span> \
+    <span class="n">squashfuse</span> \
+    <span class="n">fuse2fs</span> \
+    <span class="n">fuse</span><span class="o">-</span><span class="n">overlayfs</span> \
+    <span class="n">fakeroot</span> \
+    <span class="n">cryptsetup</span> \
+    <span class="n">curl</span> <span class="n">wget</span> <span class="n">git</span>
+</pre></div>
+</div>
+<p>Install Go</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">GOVERSION</span><span class="o">=</span><span class="mf">1.19.6</span> <span class="n">OS</span><span class="o">=</span><span class="n">linux</span> <span class="n">ARCH</span><span class="o">=</span><span class="n">amd64</span>  
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wget -O /tmp/go${GOVERSION}.${OS}-${ARCH}.tar.gz \
+  https://dl.google.com/go/go${GOVERSION}.${OS}-${ARCH}.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go${GOVERSION}.${OS}-${ARCH}.tar.gz
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;export PATH=$PATH:/usr/local/go/bin&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Install golangci-lint</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.51.1
+</pre></div>
+</div>
+<p>Clone the repo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apptainer</span><span class="o">/</span><span class="n">apptainer</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">apptainer</span>
+</pre></div>
+</div>
+<p>Configure build and install apptainer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mconfig</span>
+<span class="n">cd</span> <span class="o">./</span><span class="n">builddir</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>Confirm installation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apptainer</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 </section>
@@ -443,11 +483,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../git/github.html"
+       href="rapids.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Github Commands</p>
+        <p class="prev-next-title">Rapids</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
