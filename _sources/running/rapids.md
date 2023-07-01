@@ -1,6 +1,6 @@
 # Rapids
 
-First, pull the container. Cuda version, Python version, and Runtime can all be edited to pull varying containers.
+First, pull the Rapids container. Cuda version, Python version, and Runtime can be edited to pull varying containers.
 ```
 apptainer pull docker://nvcr.io/nvidia/rapidsai/rapidsai:23.04-cuda11.8-runtime-ubuntu22.04-py3.10
 ```
