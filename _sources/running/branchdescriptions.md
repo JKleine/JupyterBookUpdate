@@ -97,3 +97,11 @@ Activate the conda environment – conda activate con_jigsaw.env (if not exist r
 Python jigsaw.py DATASET 
 
 To add new dataset, modify the ‘get_target’ function and ‘readData’ function in jigsaw.py, add the parameters in config.ini
+
+### Year: 2023
+
+## Modified AUM-Dataset_Latest (7/7/2023) : https://github.com/shighton/DeepHSI
+
+Added Dr. Kursun's fixes from his repository (https://github.com/olcaykursun/DeepHyperX) to AUM-Dataset_Latest (https://github.com/shighton/DeepHSI)
+
+
