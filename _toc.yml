@@ -16,6 +16,7 @@ parts:
   - file: running/modelreferences
   - file: running/apptainer
   - file: running/rapids
+  - file: running/branchdescriptions
 - caption: Github and Documentation
   chapters:
   - file: git/github
