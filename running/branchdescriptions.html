@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Installing Singularity and Singularity-Compose &#8212; HSI Documentation</title>
+    <title>Branch Descriptions &#8212; HSI Documentation</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'running/singularity';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'running/branchdescriptions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating a SIF container from a .def File" href="diftosif.html" />
-    <link rel="prev" title="Docker" href="docker.html" />
+    <link rel="next" title="Github Commands" href="../git/github.html" />
+    <link rel="prev" title="Rapids" href="rapids.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,13 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Running Tests</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing Singularity and Singularity-Compose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity.html">Installing Singularity and Singularity-Compose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="diftosif.html">Creating a SIF container from a .def File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHyperX from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modelreferences.html">Models and Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apptainer.html">Apptainer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rapids.html">Rapids</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branchdescriptions.html">Branch Descriptions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Branch Descriptions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Github and Documentation</span></p>
 <ul class="nav bd-sidenav">
@@ -248,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Frunning/singularity.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Frunning/branchdescriptions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -278,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/running/singularity.md" target="_blank"
+      <li><a href="../_sources/running/branchdescriptions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +360,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installing Singularity and Singularity-Compose</h1>
+    <h1>Branch Descriptions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -370,9 +370,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-singularity">Installing Singularity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-singularity-compose">Installing Singularity-Compose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#master-https-github-com-stonefranklin-deephyperx-tree-master">Master: https://github.com/StoneFranklin/DeepHyperX/tree/master</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">Singularity: https://github.com/StoneFranklin/DeepHyperX/tree/singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">Singularity-images: https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">Gateway-styled-output: https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">Thundersvm: https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">Aum-dataset: https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threelayer-classification-https-github-com-semihdinc-deephyperx">ThreeLayer Classification: https://github.com/semihdinc/DeepHyperX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">DeepHyperX-aum-dataset_combined-threeLayer: https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2022">Year: 2022</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">DeepHyperX-aum-dataset_combined-threeLayer (updated): https://github.com/Fennrii/AUM-UNG-HSI-Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-container-based-on-aum-dataset-sif-version2">New container based on aum-dataset.sif:version2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw">Modified Jigsaw Code: https://github.com/Deepp0925/jigsaw</a></li>
 </ul>
             </nav>
         </div>
@@ -384,92 +395,70 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-singularity-and-singularity-compose">
-<h1>Installing Singularity and Singularity-Compose<a class="headerlink" href="#installing-singularity-and-singularity-compose" title="Permalink to this heading">#</a></h1>
-<section id="installing-singularity">
-<h2>Installing Singularity<a class="headerlink" href="#installing-singularity" title="Permalink to this heading">#</a></h2>
-<p>Install system dependencies with the commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">git</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">libseccomp</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">squashfs</span><span class="o">-</span><span class="n">tools</span> <span class="n">cryptsetup</span>
-</pre></div>
-</div>
-<p>Install GoLang with the commands:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">VERSION</span><span class="o">=</span><span class="mf">1.18.2</span> <span class="n">OS</span><span class="o">=</span><span class="n">linux</span> <span class="n">ARCH</span><span class="o">=</span><span class="n">amd64</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz 
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s1">&#39;export GOPATH=$</span><span class="si">{HOME}</span><span class="s1">/go&#39;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">golang</span><span class="o">-</span><span class="n">go</span>
-</pre></div>
-</div>
-<p>To check that it is installed do the command</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">version</span>
-</pre></div>
-</div>
-<p>Clone Singularity</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir -p ${GOPATH}/src/github.com/hpcng
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd ${GOPATH}/src/github.com/hpcng
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hpcng</span><span class="o">/</span><span class="n">singularity</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">singularity</span> 
-</pre></div>
-</div>
-<p>Check out the <a class="reference external" href="https://github.com/hpcng/singularity/releases">release tag</a> before compiling, at the time of writing the current release is 3.8.7</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">v3</span><span class="mf">.8.7</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd ${GOPATH}/src/github.com/hpcng/singularity
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mconfig</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">./</span><span class="n">builddir</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span> 
-</pre></div>
-</div>
-<p>Check the version by:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="o">--</span><span class="n">version</span>
-</pre></div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="branch-descriptions">
+<h1>Branch Descriptions<a class="headerlink" href="#branch-descriptions" title="Permalink to this heading">#</a></h1>
+<section id="master-https-github-com-stonefranklin-deephyperx-tree-master">
+<h2>Master: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/master">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#master-https-github-com-stonefranklin-deephyperx-tree-master" title="Permalink to this heading">#</a></h2>
+<p>To be used when running locally in a Python environment. It contains the timing metric.</p>
 </section>
-<section id="installing-singularity-compose">
-<h2>Installing Singularity-Compose<a class="headerlink" href="#installing-singularity-compose" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">singularity</span><span class="o">-</span><span class="n">compose</span>
-</pre></div>
-</div>
+<section id="singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">
+<h2>Singularity: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/singularity">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity" title="Permalink to this heading">#</a></h2>
+<p>The same as master branch, except with altered file paths for running in a singularity container.</p>
+<p>Corresponding container: DeepHyperX-Timed.sif</p>
 </section>
-<section id="resources">
-<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://sylabs.io/guides/3.0/user-guide/installation.html">Installation Guide</a></p></li>
-<li><p><a class="reference external" href="https://github.com/hpcng/singularity">Singularity</a></p></li>
-</ul>
+<section id="singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">
+<h2>Singularity-images: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images" title="Permalink to this heading">#</a></h2>
+<p>The same as the singularity branch, with PNG image output added.</p>
+<p>Corresponding container: DeepHyperX-Images.sif</p>
+</section>
+<section id="gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">
+<h2>Gateway-styled-output: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output" title="Permalink to this heading">#</a></h2>
+<p>This branch outputs a text file with the results of the experiment. This is for use through the gateway.</p>
+<p>Corresponding container: Gateway.sif</p>
+</section>
+<section id="thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">
+<h2>Thundersvm: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm" title="Permalink to this heading">#</a></h2>
+<p>This branch contains a python file for testing thundersvm, as well as an altered definition file.</p>
+<p>Corresponding container: cuda_test.sif</p>
+</section>
+<section id="aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">
+<h2>Aum-dataset: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset" title="Permalink to this heading">#</a></h2>
+<p>Same as Gateway-styled-output, except with an altered custom_datasets.py file to allow the AUM dataset to be used.</p>
+<p>Corresponding container: AUM.sif</p>
+</section>
+<section id="threelayer-classification-https-github-com-semihdinc-deephyperx">
+<h2>ThreeLayer Classification: <a class="github reference external" href="https://github.com/semihdinc/DeepHyperX">semihdinc/DeepHyperX</a><a class="headerlink" href="#threelayer-classification-https-github-com-semihdinc-deephyperx" title="Permalink to this heading">#</a></h2>
+<p>This branch contains code from Dr. Dinc, for the threeLayer model based on the original DeepHyperX code.</p>
+</section>
+<section id="deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">
+<h2>DeepHyperX-aum-dataset_combined-threeLayer: <a class="github reference external" href="https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer">5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><a class="headerlink" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer" title="Permalink to this heading">#</a></h2>
+<p>This branch contains the working threeLayer classification model with AUM dataset. This combines the branch from AUM dataset with the threeLayer classification branch.</p>
+<p>Corresponding container: aum-dataset.sif</p>
+<section id="year-2022">
+<h3>Year: 2022<a class="headerlink" href="#year-2022" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">
+<h2>DeepHyperX-aum-dataset_combined-threeLayer (updated): <a class="github reference external" href="https://github.com/Fennrii/AUM-UNG-HSI-Repository">Fennrii/AUM-UNG-HSI-Repository</a><a class="headerlink" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository" title="Permalink to this heading">#</a></h2>
+<p>This branch changed the threeLayer model to allow it to be run using different datasets, and also updated <a class="reference external" href="http://models.py">models.py</a> to allow for larger datasets</p>
+<p>Initial container: aum-dataset.sif:version1</p>
+<p>Current container: aum-dataset.sif:version2</p>
+</section>
+<section id="new-container-based-on-aum-dataset-sif-version2">
+<h2>New container based on aum-dataset.sif:version2.<a class="headerlink" href="#new-container-based-on-aum-dataset-sif-version2" title="Permalink to this heading">#</a></h2>
+<p>Added parralellism threeLayer method based on numba as well as the ability to use the SVM_grid model in testing.</p>
+<p>Current container: aum-dataset.sif:latest</p>
+</section>
+<section id="modified-jigsaw-code-https-github-com-deepp0925-jigsaw">
+<h2>Modified Jigsaw Code: <a class="github reference external" href="https://github.com/Deepp0925/jigsaw">Deepp0925/jigsaw</a><a class="headerlink" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw" title="Permalink to this heading">#</a></h2>
+<p>Added new datasets, captures the time elapsed for each run</p>
+<p>To run bash file:</p>
+<p>sbatch ./multi_run.bash DATASET [Num of runs]</p>
+<p>To run multiple datasets at once modify the Datasets array in assign_multi_run.bash with desired values and number of runs.</p>
+<p>To run in interactive mode (only one run):</p>
+<p>Activate the conda environment – conda activate con_jigsaw.env (if not exist run: conda create –name con_jigsaw_env –file conda_requisites.txt)</p>
+<p>Python <a class="reference external" href="http://jigsaw.py">jigsaw.py</a> DATASET</p>
+<p>To add new dataset, modify the ‘get_target’ function and ‘readData’ function in <a class="reference external" href="http://jigsaw.py">jigsaw.py</a>, add the parameters in config.ini</p>
 </section>
 </section>
 
@@ -505,20 +494,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="docker.html"
+       href="rapids.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Docker</p>
+        <p class="prev-next-title">Rapids</p>
       </div>
     </a>
     <a class="right-next"
-       href="diftosif.html"
+       href="../git/github.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a SIF container from a .def File</p>
+        <p class="prev-next-title">Github Commands</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -540,9 +529,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-singularity">Installing Singularity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-singularity-compose">Installing Singularity-Compose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#master-https-github-com-stonefranklin-deephyperx-tree-master">Master: https://github.com/StoneFranklin/DeepHyperX/tree/master</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">Singularity: https://github.com/StoneFranklin/DeepHyperX/tree/singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">Singularity-images: https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">Gateway-styled-output: https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">Thundersvm: https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">Aum-dataset: https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threelayer-classification-https-github-com-semihdinc-deephyperx">ThreeLayer Classification: https://github.com/semihdinc/DeepHyperX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">DeepHyperX-aum-dataset_combined-threeLayer: https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2022">Year: 2022</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">DeepHyperX-aum-dataset_combined-threeLayer (updated): https://github.com/Fennrii/AUM-UNG-HSI-Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-container-based-on-aum-dataset-sif-version2">New container based on aum-dataset.sif:version2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw">Modified Jigsaw Code: https://github.com/Deepp0925/jigsaw</a></li>
 </ul>
   </nav></div>
 
