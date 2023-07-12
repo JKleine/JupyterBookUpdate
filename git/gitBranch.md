@@ -1,9 +1,9 @@
 # Github Branches
 
 ## Making a branch of a Github repository
-For this repository, please let Andrew axsato7395@ung.edu know your github username so he can add you as a contributor.
+For this repository, please let Sabastian sthigh7790@ung.edu know your github username so he can add you as a contributor.
 
-First go to the [repository that you will be working on](https://github.com/Fennrii/AUM-UNG-HSI-Repository)
+First go to the [repository that you will be working on](https://github.com/shighton/DeepHSI.git)
 
 Click on the drop down next to the number of branches, it should say either master or main.
 
@@ -22,12 +22,12 @@ Once you click the "Create branch: Your Branch Name" button you will get directe
 
 First thing that you're going to want to do is to clone the repository from github, do so with the command:
 ```
-git clone https://github.com/Fennrii/AUM-UNG-HSI-Repository/
+git clone https://github.com/shighton/DeepHSI.git
 ```
 
 Once it is done cloning you are going to want to go into the directory:
 ```
-cd AUM-UNG-HSI-Repository/
+cd DeepHSI/
 ```
 
 Next you are going to want to make sure that your branch is available:
