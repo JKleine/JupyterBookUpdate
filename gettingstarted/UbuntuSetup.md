@@ -1,4 +1,4 @@
-# Setting Up Ubuntu Virtual Machine
+# 1. Setting Up Ubuntu Virtual Machine
 
 To make our process as easy as possible to follow, we try to work in a linux envoronment.
 Here is a guide to installing Ubuntu for you to use going forwards.

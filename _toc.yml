@@ -4,23 +4,32 @@
 format: jb-book
 root: intro
 parts:
-- caption: Getting the OS
+- caption: Getting Started
   chapters:
-  - file: os/UbuntuSetup
-- caption: Running Tests
+  - file: gettingstarted/UbuntuSetup
+  - file: gettingstarted/local
+  - file: gettingstarted/supercomputer
+  - file: gettingstarted/links
+- caption: Tools
   chapters:
-  - file: running/docker
-  - file: running/singularity
-  - file: running/diftosif
-  - file: running/runningsif
-  - file: running/modelreferences
-  - file: running/apptainer
-  - file: running/rapids
-  - file: running/branchdescriptions
-- caption: Github and Documentation
+  - file: guides/docker
+  - file: guides/singularity
+  - file: guides/apptainer
+  - file: guides/rapids
+- caption: Guides and Tasks
   chapters:
+  - file: guides/diftosif
+  - file: guides/runningsif
   - file: git/github
   - file: git/gitBranch
   - file: git/gitExample
   - file: git/jupyterbooks
+- caption: Reference
+  chapters:
+  - file: guides/modelreferences
+  - file: guides/branchdescriptions
+- caption: Results and Papers
+  chapters:
+  - file: results/results.md
+  - file: results/papers.md
 

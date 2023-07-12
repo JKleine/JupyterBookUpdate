@@ -1,4 +1,4 @@
-# Installing Singularity and Singularity-Compose
+# Singularity
 
 ## Installing Singularity
 
