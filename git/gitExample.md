@@ -1,6 +1,6 @@
 # Forking a Github Project
 
-This would be an example of how to update the code for creating a fork of the [AUM-UNG-HSI-Repository](https://github.com/Fennrii/AUM-UNG-HSI-Repository) github project.
+This would be an example of how to update the code for creating a fork of the [DeepHSI](https://github.com/shighton/DeepHSI.git) github project.
 
 ## Requirenments
 
@@ -13,7 +13,7 @@ You also need to have a github account which you can create [here](https://githu
 
 ## Creating a fork
 
-Navigate to the [Github project website](https://github.com/Fennrii/AUM-UNG-HSI-Repository).
+Navigate to the [Github project website](https://github.com/shighton/DeepHSI.git).
 
 In the upper right corner of the webpage click the "Fork" button[(Figure 1)](figure1)
 ```{figure} /images/ForkFigure1.png
@@ -32,12 +32,12 @@ Once you are finished, click the green "Create fork" button.
 
 Once you have finished forking the repository and have git installed, navigate to where you want the files saved and then you need to clone the directory:
 ```
-git clone https://github.com/Your Github Username/AUM-UNG-HSI-Repository
+git clone https://github.com/Your Username/DeepHSI.git
 ```
 
 Navigate into the new directory 
 ```
-cd AUM-UNG-HSI-Repository
+cd DeepHSI
 ```
 
 Make the nessesary changes to the fork and then upload your results onto github
@@ -60,7 +60,7 @@ git push origin master
 
 If you want to keep your fork up to date with the main repository you forked from you need to add it as your forks upstream
 ```
-git remote add upstream https://github.com/Fennrii/AUM-UNG-HSI-Repository
+git remote add upstream https://github.com/shighton/DeepHSI.git
 ```
 
 To make sure that it is correctlty added, use the command 
@@ -70,10 +70,10 @@ git remote -v
 
 You should see something simular to:
 ```
-origin	        https://github.com/Your Username/AUM-UNG-HSI-Repository (fetch)
-origin	        https://github.com/Your Username/AUM-UNG-HSI-Repository (push)
-upstream	https://github.com/Fennrii/AUM-UNG-HSI-Repository (fetch)
-upstream	https://github.com/Fennrii/AUM-UNG-HSI-Repository (push)
+origin	        https://github.com/Your Username/DeepHSI.git (fetch)
+origin	        https://github.com/Your Username/DeepHSI.git (push)
+upstream	https://github.com/shighton/DeepHSI.git (fetch)
+upstream	https://github.com/shighton/DeepHSI.git (push)
 ```
 
 To fetch the branches and commits from the upstream repository use the command 
