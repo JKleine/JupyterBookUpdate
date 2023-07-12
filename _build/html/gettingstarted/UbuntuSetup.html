@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'gettingstarted/UbuntuSetup';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Docker" href="../running/docker.html" />
+    <link rel="next" title="2. Working locally" href="local.html" />
     <link rel="prev" title="NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -141,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo2.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo2.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -159,24 +159,35 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Setting Up Ubuntu Virtual Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local.html">2. Working locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supercomputer.html">3. Working with the supercomputer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">A. Links and User Guides</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Running Tests</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../running/docker.html">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/singularity.html">Installing Singularity and Singularity-Compose</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/diftosif.html">Creating a SIF container from a .def File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/runningsif.html">Running DeepHyperX from a SIF File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/modelreferences.html">Models and Datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/apptainer.html">Apptainer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/rapids.html">Rapids</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../running/branchdescriptions.html">Branch Descriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/singularity.html">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/apptainer.html">Apptainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/rapids.html">Rapids</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Github and Documentation</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides and Tasks</span></p>
 <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../guides/diftosif.html">Creating a SIF container from a .def File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/runningsif.html">Running DeepHyperX from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/github.html">Github Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitBranch.html">Github Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitExample.html">Forking a Github Project</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/jupyterbooks.html">Working with the JupyterBooks Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../guides/modelreferences.html">Models and Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/branchdescriptions.html">Branch Descriptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Results and Papers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../results/results.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../results/papers.html">Papers</a></li>
 </ul>
 
     </div>
@@ -218,53 +229,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/Fennrii/JupyterBook" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Fgettingstarted/UbuntuSetup.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
 
 
 
@@ -494,11 +458,11 @@ You are going to want to select “Install Ubuntu” on the first screen, then �
       </div>
     </a>
     <a class="right-next"
-       href="../running/docker.html"
+       href="local.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Docker</p>
+        <p class="prev-next-title">2. Working locally</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
