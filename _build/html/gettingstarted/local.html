@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="UbuntuSetup.html">1. Setting Up Ubuntu Virtual Machine</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Working locally</a></li>
 <li class="toctree-l1"><a class="reference internal" href="supercomputer.html">3. Working with the supercomputer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">A. Links and User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">a. Links and User Guides</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
@@ -311,7 +311,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -327,6 +329,20 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-without-a-container">Running without a container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-a-container">Running with a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -338,6 +354,38 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="working-locally">
 <h1>2. Working locally<a class="headerlink" href="#working-locally" title="Permalink to this heading">#</a></h1>
+<p>DeepHyper X models can be ran locally if the proper environment is set up and proper packages are installed on your system, or it can be ran inside a container.</p>
+<section id="running-without-a-container">
+<h2>Running without a container<a class="headerlink" href="#running-without-a-container" title="Permalink to this heading">#</a></h2>
+<p>-Anaconda
+-Environment creation and activation
+-package installations</p>
+</section>
+<section id="running-with-a-container">
+<h2>Running with a container<a class="headerlink" href="#running-with-a-container" title="Permalink to this heading">#</a></h2>
+<p>There are a few container programs that can be used. Docker requires sudo so can not be used on either supercomputer. Apptainer is a new version of Singularity but lacks support at the time.</p>
+<section id="docker">
+<h3>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h3>
+<p>Install Docker</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/docker.html"><span class="doc std std-doc">Docker Installation</span></a></p></li>
+</ul>
+</section>
+<section id="singularity">
+<h3>Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h3>
+<p>Install Singularity</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/singularity.html"><span class="doc std std-doc">Docker Singularity</span></a></p></li>
+</ul>
+</section>
+<section id="apptainer">
+<h3>Apptainer<a class="headerlink" href="#apptainer" title="Permalink to this heading">#</a></h3>
+<p>Install Apptainer</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/apptainer.html"><span class="doc std std-doc">Docker Apptainer</span></a></p></li>
+</ul>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -398,6 +446,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-without-a-container">Running without a container</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-a-container">Running with a container</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
