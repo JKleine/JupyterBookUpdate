@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Branch Descriptions &#8212; HSI Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guides/branchdescriptions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Results" href="../results/results.html" />
+    <link rel="prev" title="Models and Datasets" href="modelreferences.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    NSF Research Project: A Modular MultiLayer Framework for Real-Time Hyperspectral Image Segmentation Documentation
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/UbuntuSetup.html">1. Setting Up Ubuntu Virtual Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/local.html">2. Working locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/supercomputer.html">3. Working with the supercomputer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/links.html">A. Links and User Guides</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singularity.html">Singularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="apptainer.html">Apptainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rapids.html">Rapids</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides and Tasks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="diftosif.html">Creating a SIF container from a .def File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHyperX from a SIF File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/github.html">Github Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/gitBranch.html">Github Branches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/gitExample.html">Forking a Github Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../git/jupyterbooks.html">Working with the JupyterBooks Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="modelreferences.html">Models and Datasets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Branch Descriptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Results and Papers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../results/results.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../results/papers.html">Papers</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Fennrii/JupyterBook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Fennrii/JupyterBook/issues/new?title=Issue%20on%20page%20%2Fguides/branchdescriptions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/guides/branchdescriptions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Branch Descriptions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#master-https-github-com-stonefranklin-deephyperx-tree-master">Master: https://github.com/StoneFranklin/DeepHyperX/tree/master</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">Singularity: https://github.com/StoneFranklin/DeepHyperX/tree/singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">Singularity-images: https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">Gateway-styled-output: https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">Thundersvm: https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">Aum-dataset: https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threelayer-classification-https-github-com-semihdinc-deephyperx">ThreeLayer Classification: https://github.com/semihdinc/DeepHyperX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">DeepHyperX-aum-dataset_combined-threeLayer: https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2022">Year: 2022</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">DeepHyperX-aum-dataset_combined-threeLayer (updated): https://github.com/Fennrii/AUM-UNG-HSI-Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-container-based-on-aum-dataset-sif-version2">New container based on aum-dataset.sif:version2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw">Modified Jigsaw Code: https://github.com/Deepp0925/jigsaw</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2023">Year: 2023</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-aum-dataset-latest-7-7-2023-https-github-com-shighton-deephsi">Modified AUM-Dataset_Latest (7/7/2023) : https://github.com/shighton/DeepHSI</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="branch-descriptions">
+<h1>Branch Descriptions<a class="headerlink" href="#branch-descriptions" title="Permalink to this heading">#</a></h1>
+<section id="master-https-github-com-stonefranklin-deephyperx-tree-master">
+<h2>Master: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/master">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#master-https-github-com-stonefranklin-deephyperx-tree-master" title="Permalink to this heading">#</a></h2>
+<p>To be used when running locally in a Python environment. It contains the timing metric.</p>
+</section>
+<section id="singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">
+<h2>Singularity: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/singularity">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity" title="Permalink to this heading">#</a></h2>
+<p>The same as master branch, except with altered file paths for running in a singularity container.</p>
+<p>Corresponding container: DeepHyperX-Timed.sif</p>
+</section>
+<section id="singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">
+<h2>Singularity-images: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images" title="Permalink to this heading">#</a></h2>
+<p>The same as the singularity branch, with PNG image output added.</p>
+<p>Corresponding container: DeepHyperX-Images.sif</p>
+</section>
+<section id="gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">
+<h2>Gateway-styled-output: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output" title="Permalink to this heading">#</a></h2>
+<p>This branch outputs a text file with the results of the experiment. This is for use through the gateway.</p>
+<p>Corresponding container: Gateway.sif</p>
+</section>
+<section id="thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">
+<h2>Thundersvm: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm" title="Permalink to this heading">#</a></h2>
+<p>This branch contains a python file for testing thundersvm, as well as an altered definition file.</p>
+<p>Corresponding container: cuda_test.sif</p>
+</section>
+<section id="aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">
+<h2>Aum-dataset: <a class="github reference external" href="https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset">StoneFranklin/DeepHyperX</a><a class="headerlink" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset" title="Permalink to this heading">#</a></h2>
+<p>Same as Gateway-styled-output, except with an altered custom_datasets.py file to allow the AUM dataset to be used.</p>
+<p>Corresponding container: AUM.sif</p>
+</section>
+<section id="threelayer-classification-https-github-com-semihdinc-deephyperx">
+<h2>ThreeLayer Classification: <a class="github reference external" href="https://github.com/semihdinc/DeepHyperX">semihdinc/DeepHyperX</a><a class="headerlink" href="#threelayer-classification-https-github-com-semihdinc-deephyperx" title="Permalink to this heading">#</a></h2>
+<p>This branch contains code from Dr. Dinc, for the threeLayer model based on the original DeepHyperX code.</p>
+</section>
+<section id="deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">
+<h2>DeepHyperX-aum-dataset_combined-threeLayer: <a class="github reference external" href="https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer">5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><a class="headerlink" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer" title="Permalink to this heading">#</a></h2>
+<p>This branch contains the working threeLayer classification model with AUM dataset. This combines the branch from AUM dataset with the threeLayer classification branch.</p>
+<p>Corresponding container: aum-dataset.sif</p>
+<section id="year-2022">
+<h3>Year: 2022<a class="headerlink" href="#year-2022" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">
+<h2>DeepHyperX-aum-dataset_combined-threeLayer (updated): <a class="github reference external" href="https://github.com/Fennrii/AUM-UNG-HSI-Repository">Fennrii/AUM-UNG-HSI-Repository</a><a class="headerlink" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository" title="Permalink to this heading">#</a></h2>
+<p>This branch changed the threeLayer model to allow it to be run using different datasets, and also updated <a class="reference external" href="http://models.py">models.py</a> to allow for larger datasets</p>
+<p>Initial container: aum-dataset.sif:version1</p>
+<p>Current container: aum-dataset.sif:version2</p>
+</section>
+<section id="new-container-based-on-aum-dataset-sif-version2">
+<h2>New container based on aum-dataset.sif:version2.<a class="headerlink" href="#new-container-based-on-aum-dataset-sif-version2" title="Permalink to this heading">#</a></h2>
+<p>Added parralellism threeLayer method based on numba as well as the ability to use the SVM_grid model in testing.</p>
+<p>Current container: aum-dataset.sif:latest</p>
+</section>
+<section id="modified-jigsaw-code-https-github-com-deepp0925-jigsaw">
+<h2>Modified Jigsaw Code: <a class="github reference external" href="https://github.com/Deepp0925/jigsaw">Deepp0925/jigsaw</a><a class="headerlink" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw" title="Permalink to this heading">#</a></h2>
+<p>Added new datasets, captures the time elapsed for each run</p>
+<p>To run bash file:</p>
+<p>sbatch ./multi_run.bash DATASET [Num of runs]</p>
+<p>To run multiple datasets at once modify the Datasets array in assign_multi_run.bash with desired values and number of runs.</p>
+<p>To run in interactive mode (only one run):</p>
+<p>Activate the conda environment – conda activate con_jigsaw.env (if not exist run: conda create –name con_jigsaw_env –file conda_requisites.txt)</p>
+<p>Python <a class="reference external" href="http://jigsaw.py">jigsaw.py</a> DATASET</p>
+<p>To add new dataset, modify the ‘get_target’ function and ‘readData’ function in <a class="reference external" href="http://jigsaw.py">jigsaw.py</a>, add the parameters in config.ini</p>
+<section id="year-2023">
+<h3>Year: 2023<a class="headerlink" href="#year-2023" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="modified-aum-dataset-latest-7-7-2023-https-github-com-shighton-deephsi">
+<h2>Modified AUM-Dataset_Latest (7/7/2023) : <a class="github reference external" href="https://github.com/shighton/DeepHSI">shighton/DeepHSI</a><a class="headerlink" href="#modified-aum-dataset-latest-7-7-2023-https-github-com-shighton-deephsi" title="Permalink to this heading">#</a></h2>
+<p>Added Dr. Kursun’s fixes from his repository (<a class="github reference external" href="https://github.com/olcaykursun/DeepHyperX">olcaykursun/DeepHyperX</a>) to AUM-Dataset_Latest (<a class="github reference external" href="https://github.com/shighton/DeepHSI">shighton/DeepHSI</a>)</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./guides"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modelreferences.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Models and Datasets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../results/results.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Results</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#master-https-github-com-stonefranklin-deephyperx-tree-master">Master: https://github.com/StoneFranklin/DeepHyperX/tree/master</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-https-github-com-stonefranklin-deephyperx-tree-singularity">Singularity: https://github.com/StoneFranklin/DeepHyperX/tree/singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity-images-https-github-com-stonefranklin-deephyperx-tree-singularity-images">Singularity-images: https://github.com/StoneFranklin/DeepHyperX/tree/singularity-images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gateway-styled-output-https-github-com-stonefranklin-deephyperx-tree-gateway-styled-output">Gateway-styled-output: https://github.com/StoneFranklin/DeepHyperX/tree/gateway-styled-output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thundersvm-https-github-com-stonefranklin-deephyperx-tree-thundersvm">Thundersvm: https://github.com/StoneFranklin/DeepHyperX/tree/thundersvm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aum-dataset-https-github-com-stonefranklin-deephyperx-tree-aum-dataset">Aum-dataset: https://github.com/StoneFranklin/DeepHyperX/tree/aum-dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threelayer-classification-https-github-com-semihdinc-deephyperx">ThreeLayer Classification: https://github.com/semihdinc/DeepHyperX</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-https-github-com-5mi7th3mi6-deephyperx-aum-dataset-combined-threelayer">DeepHyperX-aum-dataset_combined-threeLayer: https://github.com/5MI7th3MI6/DeepHyperX-aum-dataset_combined-threeLayer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2022">Year: 2022</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deephyperx-aum-dataset-combined-threelayer-updated-https-github-com-fennrii-aum-ung-hsi-repository">DeepHyperX-aum-dataset_combined-threeLayer (updated): https://github.com/Fennrii/AUM-UNG-HSI-Repository</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-container-based-on-aum-dataset-sif-version2">New container based on aum-dataset.sif:version2.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-jigsaw-code-https-github-com-deepp0925-jigsaw">Modified Jigsaw Code: https://github.com/Deepp0925/jigsaw</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-2023">Year: 2023</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modified-aum-dataset-latest-7-7-2023-https-github-com-shighton-deephsi">Modified AUM-Dataset_Latest (7/7/2023) : https://github.com/shighton/DeepHSI</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Andrew Satory
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
