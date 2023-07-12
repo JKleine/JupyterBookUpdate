@@ -14,12 +14,12 @@ conda install -c conda-forge jupyter-book
 
 ## Working with the current Jupyter book
 
-To add to the Jupyter book repository, please let Andrew axsato7395@ung.edu know your github username so he can add you as a contributor.
+To add to the Jupyter book repository, please let Jay know your github username so he can add you as a contributor.
 
-To start working on the book documentation you are first going to want to create a branch [here](https://github.com/Fennrii/JupyterBook) and then clone the current book:
+To start working on the book documentation you are first going to want to create a branch [here](https://github.com/JKleine/JupyterBookUpdate) and then clone the current book:
 
 ```
-git clone https://github.com/Fennrii/JupyterBook
+git clone https://github.com/JKleine/JupyterBookUpdate.git
 ```
 
 To build the current book on your local computer so that you can track your changes, in the directory where you saved the project run 
