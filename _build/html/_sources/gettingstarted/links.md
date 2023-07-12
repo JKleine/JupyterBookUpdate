@@ -13,4 +13,7 @@
 - [Full Rapids container](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/rapidsai/containers/rapidsai)
 - [Rapids Core container](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/rapidsai/containers/rapidsai-core)
 - [Rapids Jupyter-book](https://docs.rapids.ai/)
-
+ 
+## Other User Guides
+- [Git User Guide](https://git-scm.com/docs/user-manual.html)
+- [Jupyter-Book Guide](https://jupyterbook.org/en/stable/intro.html#)
