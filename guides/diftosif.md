@@ -1,6 +1,6 @@
 # Creating a SIF container from a .def File
 
-Download the files from the [DeepHyperX Github repository](https://github.com/nshaud/DeepHyperX) into a folder
+Download the files from the [DeepHSI Github repository](https://github.com/shighton/DeepHSI) into a folder
 
 ## Code edits
 
@@ -22,8 +22,6 @@ cd /workspace
 ```
 
 ## Using the .def file
-
-Download [test.def](https://github.com/Fennrii/TempResos/blob/master/test.def) and put it in the same folder that the rest of the files are.
 
 In terminal go to the folder where all the files are and run this command:
 ```
