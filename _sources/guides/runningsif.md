@@ -15,9 +15,14 @@ Copy the new SIF file into your project folder in the supercomputer (Bridges2 fo
 scp new.sif <Username>@bridges2.psc.edu:/ocean/projects/cts090005p/<Username>
 ```
 
-SSH into the supercomputer, navigate to your project folder, and run the new SIF file.
+SSH into the supercomputer, navigate to your project folder, and make sure there are data and images folders
 ```
-singularity run new.sif
+mkdir data && mkdir images
+```
+
+Run the new SIF file.
+```
+singularity run --bind ./data:/mnt,./:/images new.sif
 ```
 
 The stable sif file as of June 8th 2022 can be found [here](https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset) or by command line:

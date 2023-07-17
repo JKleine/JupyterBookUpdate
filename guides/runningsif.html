@@ -350,8 +350,12 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="o">&lt;</span><span class="n">Username</span><span class="o">&gt;</span><span class="nd">@bridges2</span><span class="o">.</span><span class="n">psc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">/</span><span class="n">ocean</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">cts090005p</span><span class="o">/&lt;</span><span class="n">Username</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>SSH into the supercomputer, navigate to your project folder, and run the new SIF file.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span>
+<p>SSH into the supercomputer, navigate to your project folder, and make sure there are data and images folders</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data</span> <span class="o">&amp;&amp;</span> <span class="n">mkdir</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>Run the new SIF file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span>
 </pre></div>
 </div>
 <p>The stable sif file as of June 8th 2022 can be found <a class="reference external" href="https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset">here</a> or by command line:</p>
