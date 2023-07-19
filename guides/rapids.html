@@ -427,8 +427,11 @@ From: rapidsai2.sif
 </section>
 <section id="building-from-a-pulled-base-container">
 <h4>Building from a pulled base container<a class="headerlink" href="#building-from-a-pulled-base-container" title="Permalink to this heading">#</a></h4>
-<p>The following is the definition file for building a DeepHyperX container, and shows what can be put in each section:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%setup
+<p>The following is the definition file for building a DeepHyperX container(modified to start with a pulled Rapids base container and mostly commented out), and shows what can be put in each section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bootstrap: docker
+From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
+
+%setup
     # Create a directory called &quot;workspace&quot; at the root of the image&#39;s file system.
     mkdir ${SINGULARITY_ROOTFS}/workspace
     #mkdir ${SINGULARITY_ROOTFS}/workspace/three_layer_classification
