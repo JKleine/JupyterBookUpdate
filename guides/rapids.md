@@ -58,8 +58,11 @@ From: rapidsai2.sif
     # Metadata and labels
 ```
 #### Building from a pulled base container
-The following is the definition file for building a DeepHyperX container, and shows what can be put in each section:
+The following is the definition file for building a DeepHyperX container(modified to start with a pulled Rapids base container and mostly commented out), and shows what can be put in each section:
 ```
+Bootstrap: docker
+From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
+
 %setup
     # Create a directory called "workspace" at the root of the image's file system.
     mkdir ${SINGULARITY_ROOTFS}/workspace
