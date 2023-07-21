@@ -367,7 +367,10 @@ document.write(`
 <p><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Docker Desktop is required even if you only intend on using Singularity containers. Make sure your version of Cuda Toolkit matches the version of your Cuda drivers</p>
+<ul class="simple">
+<li><p>Docker Desktop is required even if you only intend on using Singularity containers.</p></li>
+<li><p>Make sure your version of Cuda Toolkit matches the version of your Cuda drivers</p></li>
+</ul>
 </div>
 <p>You can find further documentation on installation of Rapids on their official documentation here:</p>
 <p><a class="reference external" href="https://docs.rapids.ai/install">Nvidia Rapids Install</a></p>
@@ -397,6 +400,13 @@ document.write(`
 </div>
 <p>A list of available variants and their associated tags can be found here:
 <a class="reference external" href="https://hub.docker.com/r/rapidsai/rapidsai/tags">Docker Hub</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If you intend on using numpy, be sure to specify Python version 3.9 or lower</p></li>
+<li><p>If you are using a GPU with pascal architecture, be sure to specify Rapids version 21.08 or lower</p></li>
+</ul>
+</div>
 <section id="running-containers">
 <h3>Running Containers<a class="headerlink" href="#running-containers" title="Permalink to this heading">#</a></h3>
 <p>run the container</p>

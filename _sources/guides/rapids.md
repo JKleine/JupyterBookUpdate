@@ -9,7 +9,8 @@ Regardless of what container program you use, you will need to install the follo
 [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ```{note}
-Docker Desktop is required even if you only intend on using Singularity containers. Make sure your version of Cuda Toolkit matches the version of your Cuda drivers
+* Docker Desktop is required even if you only intend on using Singularity containers.
+* Make sure your version of Cuda Toolkit matches the version of your Cuda drivers
 ```
 
 You can find further documentation on installation of Rapids on their official documentation here:
@@ -40,6 +41,12 @@ singularity build rapidsai.sif docker://rapidsai/rapidsai-core:23.06-cuda11.8-ru
 ```
 A list of available variants and their associated tags can be found here:
 [Docker Hub](https://hub.docker.com/r/rapidsai/rapidsai/tags)
+
+```{note}
+* If you intend on using numpy, be sure to specify Python version 3.9 or lower
+* If you are using a GPU with pascal architecture, be sure to specify Rapids version 21.08 or lower
+```
+
 ### Running Containers
 run the container
 ```
