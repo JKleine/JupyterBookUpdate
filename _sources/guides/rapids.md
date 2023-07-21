@@ -2,7 +2,7 @@
 ##Prerequisites
 Regardless of what container program you use, you will need to install the following prerequisites. 
 
-### [CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
+### 1. [CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
 
 ### [Nvidia Cuda Toolkit](https://www.docker.com/products/docker-desktop/)
 
