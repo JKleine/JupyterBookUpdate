@@ -23,47 +23,65 @@
  ### Logging in
  Open terminal and use the following command to login to Expanse(You will be prompted for your password).
  
- ```ssh <username>@login.expanse.sdsc.edu```
+ ```
+ ssh <username>@login.expanse.sdsc.edu
+```
  
  ### Directories and File Allocations
  You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.
  
- ```cd /expanse/lustre/scratch/$USER/temp_project```
+ ```
+ cd /expanse/lustre/scratch/$USER/temp_project
+```
  
  ### Loading Modules
  Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
  You can see a list of already loaded modules with:
  
- ```module list```
+ ```
+ module list
+```
  
  You can see a list of modules available to load with:
  
- ```module avail```
+ ```
+ module avail
+```
  
  You can load a module with(this module is also used for DeepHyperX):
  
- ```module load singularitypro/3.9```
+ ```
+ module load singularitypro/3.9
+```
  
  ### Running Batch Jobs
  To submit a batch job, go to the directory your batch file is saved in and use:
  
- ```sbatch test.batch```
+ ```
+ sbatch test.batch
+```
  
  This will submit the job to the supercomputer. To check the status of your jobs use:
  
- ```squeue -u <username>```
+ ```
+ squeue -u <username>
+```
  
  ### Interactive Sessions
  You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:
- 
-```srun --partition=gpu-shared --pty --account=aub101 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 000:30:00 --wait=0 --export=ALL /bin/bash```
+
+```
+srun --partition=gpu-shared --pty --account=aub101 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 000:30:00 --wait=0 --export=ALL /bin/bash
+```
 
  The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.
 
  ### Copying files from your local machine to Expanse
  Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:
-
- ```scp <filename> <username>@login.expanse.sdsc.edu:<filepath>```
+ 
+ ```
+ scp <filename> <username>@login.expanse.sdsc.edu:<filepath>
+```
 
  You will be prompted for your password, then the transfer will begin.
 

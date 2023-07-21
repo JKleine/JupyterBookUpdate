@@ -393,40 +393,58 @@ document.write(`
 <section id="logging-in">
 <h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this heading">#</a></h3>
 <p>Open terminal and use the following command to login to Expanse(You will be prompted for your password).</p>
-<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
 </section>
 <section id="directories-and-file-allocations">
 <h3>Directories and File Allocations<a class="headerlink" href="#directories-and-file-allocations" title="Permalink to this heading">#</a></h3>
 <p>You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.</p>
-<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/expanse/lustre/scratch/$USER/temp_project</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /expanse/lustre/scratch/$USER/temp_project
+</pre></div>
+</div>
 </section>
 <section id="loading-modules">
 <h3>Loading Modules<a class="headerlink" href="#loading-modules" title="Permalink to this heading">#</a></h3>
 <p>Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
 You can see a list of already loaded modules with:</p>
-<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="nb">list</span>
+</pre></div>
+</div>
 <p>You can see a list of modules available to load with:</p>
-<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span>
+</pre></div>
+</div>
 <p>You can load a module with(this module is also used for DeepHyperX):</p>
-<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">singularitypro/3.9</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">singularitypro</span><span class="o">/</span><span class="mf">3.9</span>
+</pre></div>
+</div>
 </section>
 <section id="running-batch-jobs">
 <h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
 <p>To submit a batch job, go to the directory your batch file is saved in and use:</p>
-<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">test</span><span class="o">.</span><span class="n">batch</span>
+</pre></div>
+</div>
 <p>This will submit the job to the supercomputer. To check the status of your jobs use:</p>
-<p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="interactive-sessions">
 <h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
 <p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:</p>
-<p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">--</span><span class="n">partition</span><span class="o">=</span><span class="n">gpu</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">pty</span> <span class="o">--</span><span class="n">account</span><span class="o">=</span><span class="n">aub101</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="mi">10</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">mem</span><span class="o">=</span><span class="mi">96</span><span class="n">G</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span><span class="n">t</span> <span class="mi">000</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">wait</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="n">export</span><span class="o">=</span><span class="n">ALL</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
 <p>The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
 </section>
 <section id="copying-files-from-your-local-machine-to-expanse">
 <h3>Copying files from your local machine to Expanse<a class="headerlink" href="#copying-files-from-your-local-machine-to-expanse" title="Permalink to this heading">#</a></h3>
 <p>Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu:&lt;filepath&gt;</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filepath</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 <p>You will be prompted for your password, then the transfer will begin.</p>
 </section>
 </section>
