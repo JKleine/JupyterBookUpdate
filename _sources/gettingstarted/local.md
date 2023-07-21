@@ -33,7 +33,7 @@ Return to your original Anaconda Prompt instance and run main.py:
 python main.py
 ```
 ```{note}
-If you run into errors from missing packages, install them using conda then retrying running main.py until it runs
+If you run into errors from missing packages, install them using conda then retry running main.py until it runs
 ```
 In a browser, go to localhost:8097, then select the environment to view the results/images.
 ```{note}
