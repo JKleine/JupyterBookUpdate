@@ -338,6 +338,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-account-on-xsede">Create an account on XSEDE</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-expanse-supercomputer">Working on Expanse Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -377,6 +385,42 @@ document.write(`
 </ul>
 </li>
 </ul>
+</section>
+</section>
+<section id="working-on-expanse-supercomputer">
+<h2>Working on Expanse Supercomputer<a class="headerlink" href="#working-on-expanse-supercomputer" title="Permalink to this heading">#</a></h2>
+<section id="logging-in">
+<h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this heading">#</a></h3>
+<p>Open terminal and use the following command to login to Expanse(You will be prompted for your password).
+<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu</span></code></p>
+</section>
+<section id="directories-and-file-allocations">
+<h3>Directories and File Allocations<a class="headerlink" href="#directories-and-file-allocations" title="Permalink to this heading">#</a></h3>
+<p>You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/expanse/lustre/scratch/$USER/temp_project</span></code></p>
+</section>
+<section id="loading-modules">
+<h3>Loading Modules<a class="headerlink" href="#loading-modules" title="Permalink to this heading">#</a></h3>
+<p>Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
+You can see a list of already loaded modules with:
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>
+You can see a list of modules available to load with:
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>
+You can load a module with(this module is also used for DeepHyperX):
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">singularitypro/3.9</span></code></p>
+</section>
+<section id="running-batch-jobs">
+<h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
+<p>To submit a batch job, go to the directory your batch file is saved in and use:
+<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code>
+This will submit the job to the supercomputer. To check the status of your jobs use:
+<code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
+</section>
+<section id="interactive-sessions">
+<h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
+<p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:
+<code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code>
+The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
 </section>
 </section>
 </section>
@@ -450,6 +494,14 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-accounts-and-preparing-your-system">Creating your Accounts and Preparing your System</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-account-on-xsede">Create an account on XSEDE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-expanse-supercomputer">Working on Expanse Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
 </ul>
 </li>
 </ul>
