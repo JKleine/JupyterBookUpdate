@@ -9,8 +9,7 @@ Regardless of what container program you use, you will need to install the follo
 [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ```{note}
-* Docker Desktop is required even if you only intend on using Singularity containers.
-* Make sure your version of Cuda Toolkit matches the version of your Cuda drivers
+Docker Desktop is required even if you only intend on using Singularity containers. Make sure your version of Cuda Toolkit matches the version of your Cuda drivers
 ```
 
 You can find further documentation on installation of Rapids on their official documentation here:
