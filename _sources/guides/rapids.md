@@ -2,11 +2,11 @@
 ##Prerequisites
 Regardless of what container program you use, you will need to install the following prerequisites. 
 
-###[CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
+### [CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
 
-###[Nvidia Cuda Toolkit](https://www.docker.com/products/docker-desktop/)
+### [Nvidia Cuda Toolkit](https://www.docker.com/products/docker-desktop/)
 
-###[Docker Desktop](https://www.docker.com/products/docker-desktop/)
+### [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 Note: Docker Desktop is required even if you only intend on using Singularity containers.
 
