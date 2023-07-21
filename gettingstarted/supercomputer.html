@@ -342,7 +342,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sbatch">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#squeue">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-script">Batch Script</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
@@ -422,14 +427,45 @@ You can see a list of already loaded modules with:</p>
 </section>
 <section id="running-batch-jobs">
 <h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
+<section id="sbatch">
+<h4>SBATCH<a class="headerlink" href="#sbatch" title="Permalink to this heading">#</a></h4>
 <p>To submit a batch job, go to the directory your batch file is saved in and use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">test</span><span class="o">.</span><span class="n">batch</span>
 </pre></div>
 </div>
-<p>This will submit the job to the supercomputer. To check the status of your jobs use:</p>
+</section>
+<section id="squeue">
+<h4>SQUEUE<a class="headerlink" href="#squeue" title="Permalink to this heading">#</a></h4>
+<p>SBATCH will submit the job to the supercomputer. To check the status of your jobs use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+</section>
+<section id="batch-script">
+<h4>Batch Script<a class="headerlink" href="#batch-script" title="Permalink to this heading">#</a></h4>
+<p>The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;test&quot;</span>
+<span class="c1">#SBATCH --output=&quot;testgpu.%j.%N.out&quot;</span>
+<span class="c1">#SBATCH --partition=gpu-shared</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH --gpus=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem=95G</span>
+<span class="c1">#SBATCH --account=aub101</span>
+<span class="c1">#SBATCH --no-requeue</span>
+<span class="c1">#SBATCH -t 01:00:00</span>
+
+<span class="n">module</span> <span class="n">purge</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">gpu</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">slurm</span>		
+<span class="n">module</span> <span class="n">load</span> <span class="n">singularitypro</span><span class="o">/</span><span class="mf">3.5</span>
+<span class="c1">#pmemd.cuda -O -i mdin.GPU -o mdout-OneGPU.$SLURM_JOBID -p prmtop -c inpcrd</span>
+<span class="n">srun</span> <span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span> <span class="n">DeepHyperX</span><span class="o">-</span><span class="n">Timed</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">SVM</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">IndianPines</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">1</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="interactive-sessions">
 <h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
@@ -525,7 +561,12 @@ You can see a list of already loaded modules with:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sbatch">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#squeue">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-script">Batch Script</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
