@@ -55,16 +55,44 @@
 ```
  
  ### Running Batch Jobs
+
+ #### SBATCH
  To submit a batch job, go to the directory your batch file is saved in and use:
  
  ```
  sbatch test.batch
 ```
- 
- This will submit the job to the supercomputer. To check the status of your jobs use:
+
+ #### SQUEUE
+ SBATCH will submit the job to the supercomputer. To check the status of your jobs use:
  
  ```
  squeue -u <username>
+```
+
+#### Batch Script
+The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.
+
+```
+#!/bin/bash
+#SBATCH --job-name="test"
+#SBATCH --output="testgpu.%j.%N.out"
+#SBATCH --partition=gpu-shared
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gpus=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=95G
+#SBATCH --account=aub101
+#SBATCH --no-requeue
+#SBATCH -t 01:00:00
+
+module purge
+module load gpu
+module load slurm		
+module load singularitypro/3.5
+#pmemd.cuda -O -i mdin.GPU -o mdout-OneGPU.$SLURM_JOBID -p prmtop -c inpcrd
+srun singularity exec --nv --bind ./data:/mnt DeepHyperX-Timed.sif python /workspace/main.py --model SVM --dataset IndianPines --training_sample 0.95 --runs 1 --cuda 0
 ```
  
  ### Interactive Sessions
