@@ -344,6 +344,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
 </li>
 </ul>
@@ -391,36 +392,42 @@ document.write(`
 <h2>Working on Expanse Supercomputer<a class="headerlink" href="#working-on-expanse-supercomputer" title="Permalink to this heading">#</a></h2>
 <section id="logging-in">
 <h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this heading">#</a></h3>
-<p>Open terminal and use the following command to login to Expanse(You will be prompted for your password).
-<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu</span></code></p>
+<p>Open terminal and use the following command to login to Expanse(You will be prompted for your password).</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu</span></code></p>
 </section>
 <section id="directories-and-file-allocations">
 <h3>Directories and File Allocations<a class="headerlink" href="#directories-and-file-allocations" title="Permalink to this heading">#</a></h3>
-<p>You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.
-<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/expanse/lustre/scratch/$USER/temp_project</span></code></p>
+<p>You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">/expanse/lustre/scratch/$USER/temp_project</span></code></p>
 </section>
 <section id="loading-modules">
 <h3>Loading Modules<a class="headerlink" href="#loading-modules" title="Permalink to this heading">#</a></h3>
 <p>Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
-You can see a list of already loaded modules with:
-<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code></p>
-<p>You can see a list of modules available to load with:
-<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
-<p>You can load a module with(this module is also used for DeepHyperX):
-<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">singularitypro/3.9</span></code></p>
+You can see a list of already loaded modules with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code></p>
+<p>You can see a list of modules available to load with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
+<p>You can load a module with(this module is also used for DeepHyperX):</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">singularitypro/3.9</span></code></p>
 </section>
 <section id="running-batch-jobs">
 <h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
-<p>To submit a batch job, go to the directory your batch file is saved in and use:
-<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code></p>
-<p>This will submit the job to the supercomputer. To check the status of your jobs use:
-<code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
+<p>To submit a batch job, go to the directory your batch file is saved in and use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code></p>
+<p>This will submit the job to the supercomputer. To check the status of your jobs use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
 </section>
 <section id="interactive-sessions">
 <h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
-<p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:
-<code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code></p>
+<p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:</p>
+<p><code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code></p>
 <p>The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
+</section>
+<section id="copying-files-from-your-local-machine-to-expanse">
+<h3>Copying files from your local machine to Expanse<a class="headerlink" href="#copying-files-from-your-local-machine-to-expanse" title="Permalink to this heading">#</a></h3>
+<p>Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">scp</span> <span class="pre">&lt;filename&gt;</span> <span class="pre">&lt;username&gt;&#64;login.expanse.sdsc.edu:&lt;filepath&gt;</span></code></p>
+<p>You will be prompted for your password, then the transfer will begin.</p>
 </section>
 </section>
 </section>
@@ -502,6 +509,7 @@ You can see a list of already loaded modules with:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
 </li>
 </ul>
