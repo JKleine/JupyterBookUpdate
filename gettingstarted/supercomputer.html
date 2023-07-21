@@ -403,24 +403,24 @@ document.write(`
 <h3>Loading Modules<a class="headerlink" href="#loading-modules" title="Permalink to this heading">#</a></h3>
 <p>Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
 You can see a list of already loaded modules with:
-<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code>
-You can see a list of modules available to load with:
-<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>
-You can load a module with(this module is also used for DeepHyperX):
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">list</span></code></p>
+<p>You can see a list of modules available to load with:
+<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code></p>
+<p>You can load a module with(this module is also used for DeepHyperX):
 <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">singularitypro/3.9</span></code></p>
 </section>
 <section id="running-batch-jobs">
 <h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
 <p>To submit a batch job, go to the directory your batch file is saved in and use:
-<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code>
-This will submit the job to the supercomputer. To check the status of your jobs use:
+<code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">test.batch</span></code></p>
+<p>This will submit the job to the supercomputer. To check the status of your jobs use:
 <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-u</span> <span class="pre">&lt;username&gt;</span></code></p>
 </section>
 <section id="interactive-sessions">
 <h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
 <p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:
-<code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code>
-The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
+<code class="docutils literal notranslate"><span class="pre">srun</span> <span class="pre">--partition=gpu-shared</span> <span class="pre">--pty</span> <span class="pre">--account=aub101</span> <span class="pre">--ntasks-per-node=10</span> <span class="pre">--nodes=1</span> <span class="pre">--mem=96G</span> <span class="pre">--gpus=1</span> <span class="pre">-t</span> <span class="pre">000:30:00</span> <span class="pre">--wait=0</span> <span class="pre">--export=ALL</span> <span class="pre">/bin/bash</span></code></p>
+<p>The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
 </section>
 </section>
 </section>
