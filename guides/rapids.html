@@ -334,7 +334,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-drivers">CUDA Drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda-toolkit">Nvidia Cuda Toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-desktop">Docker Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-platform">Container Platform</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>
@@ -362,9 +368,14 @@ document.write(`
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
 <p>Regardless of what container program you use, you will need to install the following prerequisites.</p>
-<p><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA Drivers</a></p>
-<p><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Nvidia Cuda Toolkit</a></p>
-<p><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></p>
+<section id="cuda-drivers">
+<h3><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA Drivers</a><a class="headerlink" href="#cuda-drivers" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="nvidia-cuda-toolkit">
+<h3><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Nvidia Cuda Toolkit</a><a class="headerlink" href="#nvidia-cuda-toolkit" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="docker-desktop">
+<h3><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a><a class="headerlink" href="#docker-desktop" title="Permalink to this heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul class="simple">
@@ -375,6 +386,15 @@ document.write(`
 <p>You can find further documentation on installation of Rapids on their official documentation here:</p>
 <p><a class="reference external" href="https://docs.rapids.ai/install">Nvidia Rapids Install</a></p>
 <p>Details on installing Cuda Toolkit can be found under the Docker heading, and there are some solutions for common installation errors listed.</p>
+</section>
+<section id="container-platform">
+<h3>Container Platform<a class="headerlink" href="#container-platform" title="Permalink to this heading">#</a></h3>
+<p>Installation guides for the container platform can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="apptainer.html"><span class="doc std std-doc">Apptainer Installation</span></a></p></li>
+<li><p><a class="reference internal" href="singularity.html"><span class="doc std std-doc">Singularity Installation</span></a></p></li>
+</ul>
+</section>
 </section>
 <section id="apptainer">
 <h2>Apptainer<a class="headerlink" href="#apptainer" title="Permalink to this heading">#</a></h2>
@@ -609,7 +629,13 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-drivers">CUDA Drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda-toolkit">Nvidia Cuda Toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-desktop">Docker Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-platform">Container Platform</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>

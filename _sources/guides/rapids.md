@@ -2,11 +2,11 @@
 ## Prerequisites
 Regardless of what container program you use, you will need to install the following prerequisites. 
 
-[CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
+### [CUDA Drivers](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
 
-[Nvidia Cuda Toolkit](https://www.docker.com/products/docker-desktop/)
+### [Nvidia Cuda Toolkit](https://www.docker.com/products/docker-desktop/)
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop/)
+### [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ```{note}
 * Docker Desktop is required even if you only intend on using Singularity containers.
@@ -18,6 +18,13 @@ You can find further documentation on installation of Rapids on their official d
 [Nvidia Rapids Install](https://docs.rapids.ai/install)
 
 Details on installing Cuda Toolkit can be found under the Docker heading, and there are some solutions for common installation errors listed.
+
+### Container Platform
+
+Installation guides for the container platform can be found here:
+
+* [Apptainer Installation](../guides/apptainer.md)
+* [Singularity Installation](../guides/singularity.md)
 
 ## Apptainer
 First, pull the Rapids container. Cuda version, Python version, and Runtime can be edited to pull varying containers.
