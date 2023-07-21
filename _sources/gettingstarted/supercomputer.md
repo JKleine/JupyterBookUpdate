@@ -102,7 +102,9 @@ srun singularity exec --nv --bind ./data:/mnt DeepHyperX-Timed.sif python /works
 srun --partition=gpu-shared --pty --account=aub101 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 000:30:00 --wait=0 --export=ALL /bin/bash
 ```
 
- The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.
+```{note}
+The maximum alloted time possible is 30 minutes.
+```
 
  ### Copying files from your local machine to Expanse
  Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:

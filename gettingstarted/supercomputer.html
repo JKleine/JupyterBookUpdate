@@ -473,7 +473,10 @@ You can see a list of already loaded modules with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">--</span><span class="n">partition</span><span class="o">=</span><span class="n">gpu</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">pty</span> <span class="o">--</span><span class="n">account</span><span class="o">=</span><span class="n">aub101</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="mi">10</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">mem</span><span class="o">=</span><span class="mi">96</span><span class="n">G</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span><span class="n">t</span> <span class="mi">000</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">wait</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="n">export</span><span class="o">=</span><span class="n">ALL</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 </pre></div>
 </div>
-<p>The maximum alloted time possible is 30 minutes. Be sure check parameters like partition and gpus to make sure the session you request is appropriate for your task.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The maximum alloted time possible is 30 minutes.</p>
+</div>
 </section>
 <section id="copying-files-from-your-local-machine-to-expanse">
 <h3>Copying files from your local machine to Expanse<a class="headerlink" href="#copying-files-from-your-local-machine-to-expanse" title="Permalink to this heading">#</a></h3>
