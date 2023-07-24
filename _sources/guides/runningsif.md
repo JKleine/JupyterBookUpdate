@@ -1,6 +1,6 @@
 # Running DeepHSI from a SIF File
 
-Download the files using git and cd into the folder
+Download the files using git and cd into the DeepHSI folder on your local computer
 ```
 git clone https://github.com/shighton/DeepHSI.git && cd DeepHSI
 ```
