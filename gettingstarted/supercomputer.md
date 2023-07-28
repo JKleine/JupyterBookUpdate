@@ -21,7 +21,7 @@
 
  ## Working on Expanse Supercomputer
  ### Logging in
- Open terminal and use the following command to login to Expanse(You will be prompted for your password).
+ Open terminal and use the following command to login to Expanse (You will be prompted for your password).
  
  ```
  ssh <username>@login.expanse.sdsc.edu
@@ -71,7 +71,7 @@
 ```
 
 #### Batch Script
-The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.
+The following is an example/template batch script for Expanse. The example uses singularity to run DeepHSI.
 
 ```
 #!/bin/bash
@@ -182,7 +182,7 @@ The -N is the number of nodes, the -p is the partition, the -t is the time, and 
 To cancel a job grab the job_id from squeue and type scancel <job_id>
 
 #### Batch Script
-The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.
+The following is an example/template batch script for Expanse. The example uses singularity to run DeepHSI.
 
 ```
 #!/bin/bash
