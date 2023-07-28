@@ -128,7 +128,7 @@ The maximum alloted time possible is 30 minutes.
  Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command my_quotas
  
  ```
- cd &PROJECT
+ cd $PROJECT
 ```
 ```
 my_quotas
