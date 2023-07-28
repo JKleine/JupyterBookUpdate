@@ -353,6 +353,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-bridges2-supercomputer">Working with the Bridges2 Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Batch Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-bridges">Copying files from your local machine to Bridges</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -434,11 +446,6 @@ You can see a list of already loaded modules with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">test</span><span class="o">.</span><span class="n">batch</span>
 </pre></div>
 </div>
-<p>For bridges2, an example script to run a batch file is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="n">GPU</span><span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="n">v100</span><span class="o">-</span><span class="mi">32</span><span class="p">:</span><span class="mi">1</span> <span class="n">first</span><span class="o">.</span><span class="n">batch</span>
-</pre></div>
-</div>
-<p>The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in –gpus</p>
 </section>
 <section id="squeue">
 <h4>SQUEUE<a class="headerlink" href="#squeue" title="Permalink to this heading">#</a></h4>
@@ -488,9 +495,107 @@ You can see a list of already loaded modules with:</p>
 <h3>Copying files from your local machine to Expanse<a class="headerlink" href="#copying-files-from-your-local-machine-to-expanse" title="Permalink to this heading">#</a></h3>
 <p>Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filepath</span><span class="o">&gt;</span>
+
 </pre></div>
 </div>
 <p>You will be prompted for your password, then the transfer will begin.</p>
+</section>
+</section>
+<section id="working-with-the-bridges2-supercomputer">
+<h2>Working with the Bridges2 Supercomputer<a class="headerlink" href="#working-with-the-bridges2-supercomputer" title="Permalink to this heading">#</a></h2>
+<section id="id1">
+<h3>Logging in<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Open terminal and use the following command to login to Bridges2(You will be prompted for your password).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@bridges2</span><span class="o">.</span><span class="n">psc</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Directories and File Allocations<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &amp;PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command “my_quotas”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&amp;</span><span class="n">PROJECT</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Running Batch Jobs<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h4>SBATCH<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<p>To submit a batch job, go to the directory your batch file is saved in and use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">&lt;</span><span class="n">file_name</span><span class="o">&gt;.</span><span class="n">batch</span>
+</pre></div>
+</div>
+<p>An example script to run a batch file is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="n">GPU</span><span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="n">v100</span><span class="o">-</span><span class="mi">32</span><span class="p">:</span><span class="mi">1</span> <span class="o">&lt;</span><span class="n">file_name</span><span class="o">&gt;.</span><span class="n">batch</span>
+</pre></div>
+</div>
+<p>The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in –gpus</p>
+</section>
+<section id="id5">
+<h4>SQUEUE<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>SBATCH will submit the job to the supercomputer. To check the status of your jobs use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>To cancel a job grab the job_id from squeue and type scancel &lt;job_id&gt;</p>
+</section>
+<section id="id6">
+<h4>Batch Script<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<p>The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Number of nodes</span>
+<span class="c1"># SBATCH -N 1</span>
+<span class="c1"># Partition or node type</span>
+<span class="c1"># SBATCH -p GPU-shared</span>
+<span class="c1"># Time allocated</span>
+<span class="c1"># SBATCH -t 18:00:00</span>
+<span class="c1"># Specific GPU type(v100-32). 4 is the number of GPUs in that node.</span>
+<span class="c1"># SBATCH --gpus=v100-32:4</span>
+
+<span class="c1">#type &#39;man sbatch&#39; for more information and options</span>
+<span class="c1">#this job will ask for 4 V100 GPUs on a v100-32 node in GPU-shared for 5 hours</span>
+<span class="c1">#this job would potentially charge 20 GPU SUs</span>
+
+<span class="c1">#echo commands to stdout</span>
+<span class="nb">set</span> <span class="o">-</span><span class="n">x</span>
+
+<span class="c1"># move to working directory</span>
+<span class="c1"># this job assumes:</span>
+<span class="c1"># - all input data is stored in this directory</span>
+<span class="c1"># - all output should be stored in this directory</span>
+<span class="c1"># - please note that groupname should be replaced by your groupname</span>
+<span class="c1"># - username should be replaced by your username</span>
+<span class="c1"># - path-to-directory should be replaced by the path to your directory where the executable is</span>
+
+<span class="c1"># stone00 is the username, batch-test is the folder. In batch-test, you need to create a folder called &quot;data&quot;.</span>
+<span class="c1"># cd /ocean/projects/cts090005p/stone00/batch-test</span>
+<span class="c1"># cd /ocean/projects/cts090005p/shighton/batch-test</span>
+
+<span class="c1">#run pre-compiled program which is already in your project space. Specify the path to main.py within the image (/workspace/main.py). </span>
+
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">IndianPines</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">Botswana</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">KSC</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">PaviaC</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">PaviaU</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">nn</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">Salinas</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">IndianPines</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">Botswana</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">KSC</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">PaviaC</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">PaviaU</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+<span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">threeLayer</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">Salinas</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">30</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="copying-files-from-your-local-machine-to-bridges">
+<h3>Copying files from your local machine to Bridges<a class="headerlink" href="#copying-files-from-your-local-machine-to-bridges" title="Permalink to this heading">#</a></h3>
+<p>Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Bridges2, then use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@bridges2</span><span class="o">.</span><span class="n">psc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filepath</span><span class="o">&gt;</span>
+
+</pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -578,6 +683,18 @@ You can see a list of already loaded modules with:</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-bridges2-supercomputer">Working with the Bridges2 Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Batch Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-bridges">Copying files from your local machine to Bridges</a></li>
 </ul>
 </li>
 </ul>

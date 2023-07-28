@@ -62,11 +62,6 @@
  ```
  sbatch test.batch
 ```
-For bridges2, an example script to run a batch file is:
-```
-sbatch -N 1 -p GPU-shared -t 5:00:00 --gpus=v100-32:1 first.batch
-```
-The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in --gpus
 
  #### SQUEUE
  SBATCH will submit the job to the supercomputer. To check the status of your jobs use:
@@ -116,8 +111,101 @@ The maximum alloted time possible is 30 minutes.
  
  ```
  scp <filename> <username>@login.expanse.sdsc.edu:<filepath>
+
 ```
 
  You will be prompted for your password, then the transfer will begin.
 
+## Working with the Bridges2 Supercomputer
+### Logging in
+ Open terminal and use the following command to login to Bridges2(You will be prompted for your password).
+ 
+ ```
+ ssh <username>@bridges2.psc.edu
+```
+ 
+ ### Directories and File Allocations
+ Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command "my_quotas".
+ 
+ ```
+ cd &PROJECT
+```
+ 
+ ### Running Batch Jobs
 
+ #### SBATCH
+ To submit a batch job, go to the directory your batch file is saved in and use:
+ 
+ ```
+ sbatch <file_name>.batch
+```
+An example script to run a batch file is:
+```
+sbatch -N 1 -p GPU-shared -t 5:00:00 --gpus=v100-32:1 <file_name>.batch
+```
+The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in --gpus
+
+ #### SQUEUE
+ SBATCH will submit the job to the supercomputer. To check the status of your jobs use:
+ 
+ ```
+ squeue -u <username>
+```
+To cancel a job grab the job_id from squeue and type scancel <job_id>
+
+#### Batch Script
+The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.
+
+```
+#!/bin/bash
+# Number of nodes
+# SBATCH -N 1
+# Partition or node type
+# SBATCH -p GPU-shared
+# Time allocated
+# SBATCH -t 18:00:00
+# Specific GPU type(v100-32). 4 is the number of GPUs in that node.
+# SBATCH --gpus=v100-32:4
+
+#type 'man sbatch' for more information and options
+#this job will ask for 4 V100 GPUs on a v100-32 node in GPU-shared for 5 hours
+#this job would potentially charge 20 GPU SUs
+
+#echo commands to stdout
+set -x
+
+# move to working directory
+# this job assumes:
+# - all input data is stored in this directory
+# - all output should be stored in this directory
+# - please note that groupname should be replaced by your groupname
+# - username should be replaced by your username
+# - path-to-directory should be replaced by the path to your directory where the executable is
+
+# stone00 is the username, batch-test is the folder. In batch-test, you need to create a folder called "data".
+# cd /ocean/projects/cts090005p/stone00/batch-test
+# cd /ocean/projects/cts090005p/shighton/batch-test
+
+#run pre-compiled program which is already in your project space. Specify the path to main.py within the image (/workspace/main.py). 
+
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset IndianPines --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset Botswana --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset KSC --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset PaviaC --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset PaviaU --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model nn --dataset Salinas --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset IndianPines --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset Botswana --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset KSC --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset PaviaC --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset PaviaU --training_sample 0.95 --runs 30 --cuda 0
+singularity exec --nv --bind ./data:/mnt,./:/images new.sif python /workspace/main.py --model threeLayer --dataset Salinas --training_sample 0.95 --runs 30 --cuda 0
+```
+
+ ### Copying files from your local machine to Bridges
+ Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Bridges2, then use the following command:
+ 
+ ```
+ scp <filename> <username>@bridges2.psc.edu:<filepath>
+
+```
