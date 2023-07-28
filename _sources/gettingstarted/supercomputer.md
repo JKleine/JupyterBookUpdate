@@ -118,18 +118,46 @@ The maximum alloted time possible is 30 minutes.
 
 ## Working with the Bridges2 Supercomputer
 ### Logging in
- Open terminal and use the following command to login to Bridges2(You will be prompted for your password).
+ Open terminal and use the following command to login to Bridges2 (You will be prompted for your password)
  
  ```
  ssh <username>@bridges2.psc.edu
 ```
  
  ### Directories and File Allocations
- Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command "my_quotas".
+ Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command my_quotas
  
  ```
  cd &PROJECT
 ```
+```
+my_quotas
+```
+
+### Configure Legacy SSL
+Our code uses legacy versions of libraries and as such we need to enable SSL legacy renegotiation.
+#### Create and Edit the openssl.cnf File
+```
+vi openssl.cnf
+```
+Then paste the following into the openssl.cnf file
+```
+openssl_conf = openssl_init
+
+[openssl_init]
+ssl_conf = ssl_sect
+
+[ssl_sect]
+system_default = system_default_sect
+
+[system_default_sect]
+Options = UnsafeLegacyRenegotiation
+```
+Save the contents by pressing escape then typing :wq then pressing enter. Finally, export the path to the openssl.cnf file to the OPENSSL_CONF variable. You can copy the path printed by pwd as a shortcut.
+```
+export OPENSSL_CONF=/<PATH_TO_THE_FILE>/openssl.cnf
+```
+You will likely need to repeat these steps every time you login to bridges2.
  
  ### Running Batch Jobs
 

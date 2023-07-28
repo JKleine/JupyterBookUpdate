@@ -356,6 +356,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-bridges2-supercomputer">Working with the Bridges2 Supercomputer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Logging in</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-legacy-ssl">Configure Legacy SSL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-edit-the-openssl-cnf-file">Create and Edit the openssl.cnf File</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Running Batch Jobs</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">SBATCH</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">SQUEUE</a></li>
@@ -505,17 +509,48 @@ You can see a list of already loaded modules with:</p>
 <h2>Working with the Bridges2 Supercomputer<a class="headerlink" href="#working-with-the-bridges2-supercomputer" title="Permalink to this heading">#</a></h2>
 <section id="id1">
 <h3>Logging in<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>Open terminal and use the following command to login to Bridges2(You will be prompted for your password).</p>
+<p>Open terminal and use the following command to login to Bridges2 (You will be prompted for your password)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@bridges2</span><span class="o">.</span><span class="n">psc</span><span class="o">.</span><span class="n">edu</span>
 </pre></div>
 </div>
 </section>
 <section id="id2">
 <h3>Directories and File Allocations<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &amp;PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command “my_quotas”.</p>
+<p>Use pwd (print working directory) to check where you are if you need to know. The project folder for Bridges2 is already in the variable &amp;PROJECT. Going into this folder gives you access to the allocated resources. Check allocated resources with command my_quotas</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&amp;</span><span class="n">PROJECT</span>
 </pre></div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_quotas</span>
+</pre></div>
+</div>
+</section>
+<section id="configure-legacy-ssl">
+<h3>Configure Legacy SSL<a class="headerlink" href="#configure-legacy-ssl" title="Permalink to this heading">#</a></h3>
+<p>Our code uses legacy versions of libraries and as such we need to enable SSL legacy renegotiation.</p>
+<section id="create-and-edit-the-openssl-cnf-file">
+<h4>Create and Edit the openssl.cnf File<a class="headerlink" href="#create-and-edit-the-openssl-cnf-file" title="Permalink to this heading">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="n">openssl</span><span class="o">.</span><span class="n">cnf</span>
+</pre></div>
+</div>
+<p>Then paste the following into the openssl.cnf file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">openssl_conf</span> <span class="o">=</span> <span class="n">openssl_init</span>
+
+<span class="p">[</span><span class="n">openssl_init</span><span class="p">]</span>
+<span class="n">ssl_conf</span> <span class="o">=</span> <span class="n">ssl_sect</span>
+
+<span class="p">[</span><span class="n">ssl_sect</span><span class="p">]</span>
+<span class="n">system_default</span> <span class="o">=</span> <span class="n">system_default_sect</span>
+
+<span class="p">[</span><span class="n">system_default_sect</span><span class="p">]</span>
+<span class="n">Options</span> <span class="o">=</span> <span class="n">UnsafeLegacyRenegotiation</span>
+</pre></div>
+</div>
+<p>Save the contents by pressing escape then typing :wq then pressing enter. Finally, export the path to the openssl.cnf file to the OPENSSL_CONF variable. You can copy the path printed by pwd as a shortcut.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">OPENSSL_CONF</span><span class="o">=/&lt;</span><span class="n">PATH_TO_THE_FILE</span><span class="o">&gt;/</span><span class="n">openssl</span><span class="o">.</span><span class="n">cnf</span>
+</pre></div>
+</div>
+<p>You will likely need to repeat these steps every time you login to bridges2.</p>
+</section>
 </section>
 <section id="id3">
 <h3>Running Batch Jobs<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
@@ -688,6 +723,10 @@ You can see a list of already loaded modules with:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-the-bridges2-supercomputer">Working with the Bridges2 Supercomputer</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Logging in</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-legacy-ssl">Configure Legacy SSL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-edit-the-openssl-cnf-file">Create and Edit the openssl.cnf File</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Running Batch Jobs</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">SBATCH</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">SQUEUE</a></li>
