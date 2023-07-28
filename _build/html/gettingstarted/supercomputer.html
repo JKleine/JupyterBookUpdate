@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'gettingstarted/supercomputer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="A. Links and User Guides" href="links.html" />
+    <link rel="next" title="a. Links and User Guides" href="links.html" />
     <link rel="prev" title="2. Working locally" href="local.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="UbuntuSetup.html">1. Setting Up Ubuntu Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="local.html">2. Working locally</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Working with the supercomputer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">A. Links and User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">a. Links and User Guides</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides and Tasks</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../guides/diftosif.html">Creating a SIF container from a .def File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/runningsif.html">Running DeepHyperX from a SIF File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/runningsif.html">Running DeepHSI from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/github.html">Github Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitBranch.html">Github Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitExample.html">Forking a Github Project</a></li>
@@ -338,6 +338,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-account-on-xsede">Create an account on XSEDE</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-expanse-supercomputer">Working on Expanse Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sbatch">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#squeue">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-script">Batch Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -377,6 +391,105 @@ document.write(`
 </ul>
 </li>
 </ul>
+</section>
+</section>
+<section id="working-on-expanse-supercomputer">
+<h2>Working on Expanse Supercomputer<a class="headerlink" href="#working-on-expanse-supercomputer" title="Permalink to this heading">#</a></h2>
+<section id="logging-in">
+<h3>Logging in<a class="headerlink" href="#logging-in" title="Permalink to this heading">#</a></h3>
+<p>Open terminal and use the following command to login to Expanse(You will be prompted for your password).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+</section>
+<section id="directories-and-file-allocations">
+<h3>Directories and File Allocations<a class="headerlink" href="#directories-and-file-allocations" title="Permalink to this heading">#</a></h3>
+<p>You will initially be placed in your user directory. Anything saved here will contribute to your storage allocations. Your account will be frozen until you free up space if you use it up, so be careful. Navigate to your project folder and save things there to avoid this with the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd /expanse/lustre/scratch/$USER/temp_project
+</pre></div>
+</div>
+</section>
+<section id="loading-modules">
+<h3>Loading Modules<a class="headerlink" href="#loading-modules" title="Permalink to this heading">#</a></h3>
+<p>Expanse has a variety of programs and tools installed in modules. They must be loaded before doing tasks that require them.
+You can see a list of already loaded modules with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="nb">list</span>
+</pre></div>
+</div>
+<p>You can see a list of modules available to load with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">avail</span>
+</pre></div>
+</div>
+<p>You can load a module with(this module is also used for DeepHyperX):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">singularitypro</span><span class="o">/</span><span class="mf">3.9</span>
+</pre></div>
+</div>
+</section>
+<section id="running-batch-jobs">
+<h3>Running Batch Jobs<a class="headerlink" href="#running-batch-jobs" title="Permalink to this heading">#</a></h3>
+<section id="sbatch">
+<h4>SBATCH<a class="headerlink" href="#sbatch" title="Permalink to this heading">#</a></h4>
+<p>To submit a batch job, go to the directory your batch file is saved in and use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">test</span><span class="o">.</span><span class="n">batch</span>
+</pre></div>
+</div>
+<p>For bridges2, an example script to run a batch file is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="n">GPU</span><span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="n">v100</span><span class="o">-</span><span class="mi">32</span><span class="p">:</span><span class="mi">1</span> <span class="n">first</span><span class="o">.</span><span class="n">batch</span>
+</pre></div>
+</div>
+<p>The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in –gpus</p>
+</section>
+<section id="squeue">
+<h4>SQUEUE<a class="headerlink" href="#squeue" title="Permalink to this heading">#</a></h4>
+<p>SBATCH will submit the job to the supercomputer. To check the status of your jobs use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squeue</span> <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="batch-script">
+<h4>Batch Script<a class="headerlink" href="#batch-script" title="Permalink to this heading">#</a></h4>
+<p>The following is an example/template batch script for Expanse. The example uses singularity to run DeepHyperX.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=&quot;test&quot;</span>
+<span class="c1">#SBATCH --output=&quot;testgpu.%j.%N.out&quot;</span>
+<span class="c1">#SBATCH --partition=gpu-shared</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --ntasks-per-node=1</span>
+<span class="c1">#SBATCH --gpus=1</span>
+<span class="c1">#SBATCH --cpus-per-task=1</span>
+<span class="c1">#SBATCH --mem=95G</span>
+<span class="c1">#SBATCH --account=aub101</span>
+<span class="c1">#SBATCH --no-requeue</span>
+<span class="c1">#SBATCH -t 01:00:00</span>
+
+<span class="n">module</span> <span class="n">purge</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">gpu</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">slurm</span>		
+<span class="n">module</span> <span class="n">load</span> <span class="n">singularitypro</span><span class="o">/</span><span class="mf">3.5</span>
+<span class="c1">#pmemd.cuda -O -i mdin.GPU -o mdout-OneGPU.$SLURM_JOBID -p prmtop -c inpcrd</span>
+<span class="n">srun</span> <span class="n">singularity</span> <span class="n">exec</span> <span class="o">--</span><span class="n">nv</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span> <span class="n">DeepHyperX</span><span class="o">-</span><span class="n">Timed</span><span class="o">.</span><span class="n">sif</span> <span class="n">python</span> <span class="o">/</span><span class="n">workspace</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model</span> <span class="n">SVM</span> <span class="o">--</span><span class="n">dataset</span> <span class="n">IndianPines</span> <span class="o">--</span><span class="n">training_sample</span> <span class="mf">0.95</span> <span class="o">--</span><span class="n">runs</span> <span class="mi">1</span> <span class="o">--</span><span class="n">cuda</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="interactive-sessions">
+<h3>Interactive Sessions<a class="headerlink" href="#interactive-sessions" title="Permalink to this heading">#</a></h3>
+<p>You need to request an interactive session if you wish to do things that require permissions or processing power outside of submitted jobs, including tasks like building containers, or running tests. The following command requests an interactive session:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">srun</span> <span class="o">--</span><span class="n">partition</span><span class="o">=</span><span class="n">gpu</span><span class="o">-</span><span class="n">shared</span> <span class="o">--</span><span class="n">pty</span> <span class="o">--</span><span class="n">account</span><span class="o">=</span><span class="n">aub101</span> <span class="o">--</span><span class="n">ntasks</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">node</span><span class="o">=</span><span class="mi">10</span> <span class="o">--</span><span class="n">nodes</span><span class="o">=</span><span class="mi">1</span> <span class="o">--</span><span class="n">mem</span><span class="o">=</span><span class="mi">96</span><span class="n">G</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span><span class="n">t</span> <span class="mi">000</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">wait</span><span class="o">=</span><span class="mi">0</span> <span class="o">--</span><span class="n">export</span><span class="o">=</span><span class="n">ALL</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The maximum alloted time possible is 30 minutes.</p>
+</div>
+</section>
+<section id="copying-files-from-your-local-machine-to-expanse">
+<h3>Copying files from your local machine to Expanse<a class="headerlink" href="#copying-files-from-your-local-machine-to-expanse" title="Permalink to this heading">#</a></h3>
+<p>Open a new terminal and navigate to the directory of the file(s) you would like to transfer to Expanse, then use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">&lt;</span><span class="n">filepath</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>You will be prompted for your password, then the transfer will begin.</p>
 </section>
 </section>
 </section>
@@ -426,7 +539,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">A. Links and User Guides</p>
+        <p class="prev-next-title">a. Links and User Guides</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -450,6 +563,20 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-your-accounts-and-preparing-your-system">Creating your Accounts and Preparing your System</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-account-on-xsede">Create an account on XSEDE</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-on-expanse-supercomputer">Working on Expanse Supercomputer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logging-in">Logging in</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directories-and-file-allocations">Directories and File Allocations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-modules">Loading Modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-batch-jobs">Running Batch Jobs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sbatch">SBATCH</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#squeue">SQUEUE</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-script">Batch Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-sessions">Interactive Sessions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copying-files-from-your-local-machine-to-expanse">Copying files from your local machine to Expanse</a></li>
 </ul>
 </li>
 </ul>

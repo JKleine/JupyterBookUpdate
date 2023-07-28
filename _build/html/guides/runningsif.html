@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Running DeepHyperX from a SIF File &#8212; HSI Documentation</title>
+    <title>Running DeepHSI from a SIF File &#8212; HSI Documentation</title>
   
   
   
@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/UbuntuSetup.html">1. Setting Up Ubuntu Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/local.html">2. Working locally</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/supercomputer.html">3. Working with the supercomputer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/links.html">A. Links and User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/links.html">a. Links and User Guides</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides and Tasks</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="diftosif.html">Creating a SIF container from a .def File</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running DeepHyperX from a SIF File</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Running DeepHSI from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/github.html">Github Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitBranch.html">Github Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitExample.html">Forking a Github Project</a></li>
@@ -322,7 +322,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Running DeepHyperX from a SIF File</h1>
+    <h1>Running DeepHSI from a SIF File</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -336,9 +336,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="running-deephyperx-from-a-sif-file">
-<h1>Running DeepHyperX from a SIF File<a class="headerlink" href="#running-deephyperx-from-a-sif-file" title="Permalink to this heading">#</a></h1>
-<p>The currently updated sif file as of June 8th 2022 can be found <a class="reference external" href="https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset">here</a> or by command line:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="running-deephsi-from-a-sif-file">
+<h1>Running DeepHSI from a SIF File<a class="headerlink" href="#running-deephsi-from-a-sif-file" title="Permalink to this heading">#</a></h1>
+<p>Download the files using git and cd into the DeepHSI folder on your local computer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">shighton</span><span class="o">/</span><span class="n">DeepHSI</span><span class="o">.</span><span class="n">git</span> <span class="o">&amp;&amp;</span> <span class="n">cd</span> <span class="n">DeepHSI</span>
+</pre></div>
+</div>
+<p>Build a SIF container using the test.def file in DeepHSI</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">build</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="n">test</span><span class="o">.</span><span class="k">def</span>
+</pre></div>
+</div>
+<p>Copy the new SIF file into your project folder in the supercomputer (Bridges2 for this example)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span> <span class="o">&lt;</span><span class="n">Username</span><span class="o">&gt;</span><span class="nd">@bridges2</span><span class="o">.</span><span class="n">psc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">/</span><span class="n">ocean</span><span class="o">/</span><span class="n">projects</span><span class="o">/</span><span class="n">cts090005p</span><span class="o">/&lt;</span><span class="n">Username</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>SSH into the supercomputer, navigate to your project folder, and make sure there are data and images folders</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data</span> <span class="o">&amp;&amp;</span> <span class="n">mkdir</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>Run the new SIF file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">bind</span> <span class="o">./</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">mnt</span><span class="p">,</span><span class="o">./</span><span class="p">:</span><span class="o">/</span><span class="n">images</span> <span class="n">new</span><span class="o">.</span><span class="n">sif</span>
+</pre></div>
+</div>
+<p>The stable sif file as of June 8th 2022 can be found <a class="reference external" href="https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset">here</a> or by command line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">pull</span> <span class="o">--</span><span class="n">arch</span> <span class="n">amd64</span> <span class="n">library</span><span class="p">:</span><span class="o">//</span><span class="n">andrew_satory</span><span class="o">/</span><span class="n">aum_ung_three_layer</span><span class="o">/</span><span class="n">aum</span><span class="o">-</span><span class="n">dataset</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
 </div>

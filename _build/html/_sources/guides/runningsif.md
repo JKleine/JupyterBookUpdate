@@ -1,7 +1,31 @@
-# Running DeepHyperX from a SIF File
+# Running DeepHSI from a SIF File
 
+Download the files using git and cd into the DeepHSI folder on your local computer
+```
+git clone https://github.com/shighton/DeepHSI.git && cd DeepHSI
+```
 
-The currently updated sif file as of June 8th 2022 can be found [here](https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset) or by command line:
+Build a SIF container using the test.def file in DeepHSI
+```
+singularity build new.sif test.def
+```
+
+Copy the new SIF file into your project folder in the supercomputer (Bridges2 for this example)
+```
+scp new.sif <Username>@bridges2.psc.edu:/ocean/projects/cts090005p/<Username>
+```
+
+SSH into the supercomputer, navigate to your project folder, and make sure there are data and images folders
+```
+mkdir data && mkdir images
+```
+
+Run the new SIF file.
+```
+singularity run --bind ./data:/mnt,./:/images new.sif
+```
+
+The stable sif file as of June 8th 2022 can be found [here](https://cloud.sylabs.io/library/andrew_satory/aum_ung_three_layer/aum-dataset) or by command line:
 ```
 singularity pull --arch amd64 library://andrew_satory/aum_ung_three_layer/aum-dataset:latest
 ```

@@ -20,6 +20,7 @@ parts:
   chapters:
   - file: guides/diftosif
   - file: guides/runningsif
+  - file: guides/modifyContainer
   - file: git/github
   - file: git/gitBranch
   - file: git/gitExample

@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/UbuntuSetup.html">1. Setting Up Ubuntu Virtual Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/local.html">2. Working locally</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/supercomputer.html">3. Working with the supercomputer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/links.html">A. Links and User Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/links.html">a. Links and User Guides</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="current nav bd-sidenav">
@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guides and Tasks</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="diftosif.html">Creating a SIF container from a .def File</a></li>
-<li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHyperX from a SIF File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runningsif.html">Running DeepHSI from a SIF File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/github.html">Github Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitBranch.html">Github Branches</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../git/gitExample.html">Forking a Github Project</a></li>
@@ -311,7 +311,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -327,6 +329,31 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-drivers">CUDA Drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda-toolkit">Nvidia Cuda Toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-desktop">Docker Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-platform">Container Platform</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-rebuilding-containers">Extending / Rebuilding Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-files">Definition Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-local-base-container">Building from a local base container</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-pulled-base-container">Building from a pulled base container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -338,6 +365,39 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rapids">
 <h1>Rapids<a class="headerlink" href="#rapids" title="Permalink to this heading">#</a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<p>Regardless of what container program you use, you will need to install the following prerequisites.</p>
+<section id="cuda-drivers">
+<h3><a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">CUDA Drivers</a><a class="headerlink" href="#cuda-drivers" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="nvidia-cuda-toolkit">
+<h3><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Nvidia Cuda Toolkit</a><a class="headerlink" href="#nvidia-cuda-toolkit" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="docker-desktop">
+<h3><a class="reference external" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a><a class="headerlink" href="#docker-desktop" title="Permalink to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Docker Desktop is required even if you only intend on using Singularity containers.</p></li>
+<li><p>Make sure your version of Cuda Toolkit matches the version of your Cuda drivers</p></li>
+</ul>
+</div>
+<p>You can find further documentation on installation of Rapids on their official documentation here:</p>
+<p><a class="reference external" href="https://docs.rapids.ai/install">Nvidia Rapids Install</a></p>
+<p>Details on installing Cuda Toolkit can be found under the Docker heading, and there are some solutions for common installation errors listed.</p>
+</section>
+<section id="container-platform">
+<h3>Container Platform<a class="headerlink" href="#container-platform" title="Permalink to this heading">#</a></h3>
+<p>Installation guides for the container platform can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="apptainer.html"><span class="doc std std-doc">Apptainer Installation</span></a></p></li>
+<li><p><a class="reference internal" href="singularity.html"><span class="doc std std-doc">Singularity Installation</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="apptainer">
+<h2>Apptainer<a class="headerlink" href="#apptainer" title="Permalink to this heading">#</a></h2>
 <p>First, pull the Rapids container. Cuda version, Python version, and Runtime can be edited to pull varying containers.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apptainer</span> <span class="n">pull</span> <span class="n">docker</span><span class="p">:</span><span class="o">//</span><span class="n">nvcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">nvidia</span><span class="o">/</span><span class="n">rapidsai</span><span class="o">/</span><span class="n">rapidsai</span><span class="p">:</span><span class="mf">23.04</span><span class="o">-</span><span class="n">cuda11</span><span class="mf">.8</span><span class="o">-</span><span class="n">runtime</span><span class="o">-</span><span class="n">ubuntu22</span><span class="mf">.04</span><span class="o">-</span><span class="n">py3</span><span class="mf">.10</span>
 </pre></div>
@@ -351,6 +411,155 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apptainer</span> <span class="n">shell</span> <span class="n">rapidsai_23</span><span class="mf">.04</span><span class="o">-</span><span class="n">cuda11</span><span class="mf">.8</span><span class="o">-</span><span class="n">runtime</span><span class="o">-</span><span class="n">ubuntu22</span><span class="mf">.04</span><span class="o">-</span><span class="n">py3</span><span class="mf">.10</span><span class="o">.</span><span class="n">sif</span>
 </pre></div>
 </div>
+</section>
+<section id="singularity">
+<h2>Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h2>
+<p>pull the container</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">build</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span> <span class="n">docker</span><span class="p">:</span><span class="o">//</span><span class="n">rapidsai</span><span class="o">/</span><span class="n">rapidsai</span><span class="o">-</span><span class="n">core</span><span class="p">:</span><span class="mf">23.06</span><span class="o">-</span><span class="n">cuda11</span><span class="mf">.8</span><span class="o">-</span><span class="n">runtime</span><span class="o">-</span><span class="n">ubuntu22</span><span class="mf">.04</span><span class="o">-</span><span class="n">py3</span><span class="mf">.9</span>
+</pre></div>
+</div>
+<p>A list of available variants and their associated tags can be found here:
+<a class="reference external" href="https://hub.docker.com/r/rapidsai/rapidsai/tags">Docker Hub</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If you intend on using numpy, be sure to specify Python version 3.9 or lower</p></li>
+<li><p>If you are using a GPU with pascal architecture, be sure to specify Rapids version 21.08 or lower</p></li>
+</ul>
+</div>
+<section id="running-containers">
+<h3>Running Containers<a class="headerlink" href="#running-containers" title="Permalink to this heading">#</a></h3>
+<p>run the container</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">-</span><span class="n">nvcclii</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span>
+</pre></div>
+</div>
+<p>once you are inside the container, be sure to activate the rapids environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">rapids</span>
+</pre></div>
+</div>
+</section>
+<section id="extending-rebuilding-containers">
+<h3>Extending / Rebuilding Containers<a class="headerlink" href="#extending-rebuilding-containers" title="Permalink to this heading">#</a></h3>
+<p>containers can be rebuilt and modified using definition files and the build command like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">build</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span> <span class="n">new</span><span class="o">.</span><span class="k">def</span>
+</pre></div>
+</div>
+</section>
+<section id="definition-files">
+<h3>Definition Files<a class="headerlink" href="#definition-files" title="Permalink to this heading">#</a></h3>
+<section id="building-from-a-local-base-container">
+<h4>Building from a local base container<a class="headerlink" href="#building-from-a-local-base-container" title="Permalink to this heading">#</a></h4>
+<p>The following is an example/template of a definition file that uses an existing local container as a base:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bootstrap: localimage
+From: rapidsai2.sif
+
+%setup
+    mkdir ${SINGULARITY_ROOTFS}/workspace
+    cp randomforest.py ${SINGULARITY_ROOTFS}/workspace
+%post
+    # Additional installation and configuration steps
+
+%runscript
+    # Start script or command
+
+%environment
+    # Environment variables
+
+%labels
+    # Metadata and labels
+</pre></div>
+</div>
+</section>
+<section id="building-from-a-pulled-base-container">
+<h4>Building from a pulled base container<a class="headerlink" href="#building-from-a-pulled-base-container" title="Permalink to this heading">#</a></h4>
+<p>The following is the definition file for building a DeepHyperX container(modified to start with a pulled Rapids base container and mostly commented out), and shows what can be put in each section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bootstrap: docker
+From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
+
+%setup
+    # Create a directory called &quot;workspace&quot; at the root of the image&#39;s file system.
+    mkdir ${SINGULARITY_ROOTFS}/workspace
+    #mkdir ${SINGULARITY_ROOTFS}/workspace/three_layer_classification
+    #mkdir ${SINGULARITY_ROOTFS}/workspace/SpectralNet
+    #mkdir ${SINGULARITY_ROOTFS}/workspace/A2S2KResNet
+    # Create a directory called &quot;data&quot; and a directory called &quot;Datasets&quot; inside that folder on the host system.
+    #mkdir -p data/Datasets
+%files
+    # Copy files from the host machine to the workspce folder on the Singularity image.
+    #main.py /workspace
+    #mainSpectral.py /workspace
+    #mainTesting.py /workspace
+    #models.py /workspace
+    #datasets.py /workspace
+    #custom_datasets.py /workspace
+    #inference.py /workspace
+    #utils.py /workspace
+    #License /workspace
+    #README.md /workspace
+    #requirements.txt /workspace
+    start.sh /workspace
+    #three_layer_classification/*.py /workspace/three_layer_classification
+    #A2S2KResNet/*.py /workspace/A2S2KResNet
+    #SpectralNet/*.py /workspace/SpectralNet
+    randomforest.py /workspace
+
+
+
+%environment
+    # Set environment variables
+    export LISTEN_PORT=8097
+    export LC_ALL=C
+    export PATH=/opt/conda/bin:$PATH
+    export DEBIAN_FRONTEND=noninteractive
+
+%post
+    # Install necessary packages
+    #apt-get update
+    #apt-get install -y curl
+    #apt-get install -y tzdata
+    #apt-get install -y bzip2
+    #apt-get install -y ca-certificates
+    #apt-get install ffmpeg libsm6 libxext6  -y
+    #apt-get install -y nvidia-container-toolkit-base
+    #ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+    #dpkg-reconfigure --frontend noninteractive tzdata
+    #curl -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  &amp;&amp; \
+    #chmod +x ~/miniconda.sh &amp;&amp; \
+    #~/miniconda.sh -b -p /opt/conda &amp;&amp; \
+    #rm ~/miniconda.sh
+    #rm -rf /var/lib/apt/lists/*
+
+%runscript
+    # When the SIF file is run, it will download the packages listed in requirements.txt if not already installed.
+    #echo &quot;installing packages&quot;
+    #pip3 install --no-cache-dir -r /workspace/requirements.txt
+    # It will then run start.sh
+    sh /workspace/start.sh
+    cd /workspace
+    source activate rapids
+
+%startscript
+    nc -lp $LISTEN_PORT
+
+%test
+    grep -q NAME=\&quot;Ubuntu\&quot; /etc/os-release
+    if [ $? -eq 0 ]; then
+        echo &quot;Container base is Ubuntu as expected.&quot;
+    else
+        echo &quot;Container base is not Ubuntu.&quot;
+    fi
+%labels
+    Author d@sylabs.io
+    Version v0.0.1
+
+%help
+    This is a demo container used to illustrate a def file that uses all
+    supported sections.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -411,6 +620,37 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cuda-drivers">CUDA Drivers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvidia-cuda-toolkit">Nvidia Cuda Toolkit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docker-desktop">Docker Desktop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#container-platform">Container Platform</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-rebuilding-containers">Extending / Rebuilding Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-files">Definition Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-local-base-container">Building from a local base container</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-pulled-base-container">Building from a pulled base container</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
