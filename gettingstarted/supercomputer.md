@@ -62,6 +62,11 @@
  ```
  sbatch test.batch
 ```
+For bridges2, an example script to run a batch file is:
+```
+sbatch -N 1 -p GPU-shared -t 5:00:00 --gpus=v100-32:1 first.batch
+```
+The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in --gpus
 
  #### SQUEUE
  SBATCH will submit the job to the supercomputer. To check the status of your jobs use:
