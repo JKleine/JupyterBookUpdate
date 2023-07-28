@@ -433,6 +433,11 @@ You can see a list of already loaded modules with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">test</span><span class="o">.</span><span class="n">batch</span>
 </pre></div>
 </div>
+<p>For bridges2, an example script to run a batch file is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="o">-</span><span class="n">N</span> <span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="n">GPU</span><span class="o">-</span><span class="n">shared</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="o">--</span><span class="n">gpus</span><span class="o">=</span><span class="n">v100</span><span class="o">-</span><span class="mi">32</span><span class="p">:</span><span class="mi">1</span> <span class="n">first</span><span class="o">.</span><span class="n">batch</span>
+</pre></div>
+</div>
+<p>The -N is the number of nodes, the -p is the partition, the -t is the time, and you specify the number of gpus after the colon in –gpus</p>
 </section>
 <section id="squeue">
 <h4>SQUEUE<a class="headerlink" href="#squeue" title="Permalink to this heading">#</a></h4>
