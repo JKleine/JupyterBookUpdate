@@ -187,3 +187,52 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
     This is a demo container used to illustrate a def file that uses all
     supported sections.
 ```
+### Transferring a SIF to Expanse and running it.
+Navigate to the directory of the sif in a local terminal and use the following scp command to transfer the file to the supercomputer:
+```
+scp rapidsai.sif <username>@login.expanse.sdsc.edu:/expanse/lustre/scratch/<user>/temp_project/rapids
+```
+The transfer can be slow, so if for some reason the pipe breaks, you can resume the transfer using the following command:
+```
+rsync --partial --progress --rsh=ssh rapidsai.sif <username>@login.expanse.sdsc.edu:/expanse/lustre/scratch/<user>/temp_project/rapids/rapidsai.sif
+```
+### Running the container on Expanse
+Login to expanse using ssh, then navigate to the scratch
+```
+cd /expanse/lustre/scratch/$USER/temp_project
+```
+In the above example we transferred it into a rapids folder, but from here navigate to wherever you transferred the sif file.
+Next, request an interactive session utilizing the gpu-shared partition with the following command:
+```
+srun --partition=gpu-shared --pty --account=aub101 --ntasks-per-node=10 --nodes=1 --mem=96G --gpus=1 -t 00:30:00 --wait=0 --export=ALL /bin/bash
+```
+```{note}
+Anything you are doing in 30 minutes when the session runs out will stop working
+```
+Next load the singularity module
+```
+module load singularitypro/3.9
+```
+Now you can run the container
+```
+singularity run --nv rapidsai.sif
+```
+```{note}
+You can also use 'singularity exec' to executive commands within the container, and use 'singularity shell' to enter an interactive shell of the container.
+```
+Depending on if the container was built to be interactive, you may or may not enter a prompt. If you don't enter a prompt and don't get any errors, the container ran, but had no output. 
+To make sure you enter a shell of the container use the following command:
+```
+singularity shell --nv rapidsai.sif
+```
+You shoud see a prompt like this "singularity >>" which means you are inside the container now. you can now interactive with the container, or exit using exit.
+First activate the rapids environment. without it none of the rapids libriaries load.
+```
+source activate rapids
+```
+Now run the following command to confirm that you have access to the GPU and that the GPU drivers are working correcly:
+```
+nvidia-smi
+```
+
+
