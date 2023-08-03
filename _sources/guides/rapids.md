@@ -54,7 +54,7 @@ A list of available variants and their associated tags can be found here:
 * If you are using a GPU with pascal architecture, be sure to specify Rapids version 21.08 or lower
 ```
 
-### Running Containers
+### Running Containers Locally
 run the container
 ```
 singularity run --nvccli rapidsai.sif
@@ -187,7 +187,7 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
     This is a demo container used to illustrate a def file that uses all
     supported sections.
 ```
-### Transferring a SIF to Expanse and running it.
+### Transferring a SIF to Expanse
 Navigate to the directory of the sif in a local terminal and use the following scp command to transfer the file to the supercomputer:
 ```
 scp rapidsai.sif <username>@login.expanse.sdsc.edu:/expanse/lustre/scratch/<user>/temp_project/rapids
@@ -225,7 +225,7 @@ To make sure you enter a shell of the container use the following command:
 ```
 singularity shell --nv rapidsai.sif
 ```
-You shoud see a prompt like this "singularity >>" which means you are inside the container now. you can now interactive with the container, or exit using exit.
+You shoud see a prompt like this "singularity >>" which means you are inside the container now. you can now interact with the container, or exit using exit.
 First activate the rapids environment. without it none of the rapids libriaries load.
 ```
 source activate rapids
@@ -234,5 +234,5 @@ Now run the following command to confirm that you have access to the GPU and tha
 ```
 nvidia-smi
 ```
-
+You should see output with information like the GPU type, cuda drivers, etc. This confirms that rapids works in the container.
 

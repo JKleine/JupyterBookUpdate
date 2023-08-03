@@ -344,14 +344,14 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers-locally">Running Containers Locally</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-rebuilding-containers">Extending / Rebuilding Containers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-files">Definition Files</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-local-base-container">Building from a local base container</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-pulled-base-container">Building from a pulled base container</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-a-sif-to-expanse-and-running-it">Transferring a SIF to Expanse and running it.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-a-sif-to-expanse">Transferring a SIF to Expanse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-container-on-expanse">Running the container on Expanse</a></li>
 </ul>
 </li>
@@ -430,8 +430,8 @@ document.write(`
 <li><p>If you are using a GPU with pascal architecture, be sure to specify Rapids version 21.08 or lower</p></li>
 </ul>
 </div>
-<section id="running-containers">
-<h3>Running Containers<a class="headerlink" href="#running-containers" title="Permalink to this heading">#</a></h3>
+<section id="running-containers-locally">
+<h3>Running Containers Locally<a class="headerlink" href="#running-containers-locally" title="Permalink to this heading">#</a></h3>
 <p>run the container</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">run</span> <span class="o">--</span><span class="n">nvccli</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span>
 </pre></div>
@@ -575,8 +575,8 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
 </div>
 </section>
 </section>
-<section id="transferring-a-sif-to-expanse-and-running-it">
-<h3>Transferring a SIF to Expanse and running it.<a class="headerlink" href="#transferring-a-sif-to-expanse-and-running-it" title="Permalink to this heading">#</a></h3>
+<section id="transferring-a-sif-to-expanse">
+<h3>Transferring a SIF to Expanse<a class="headerlink" href="#transferring-a-sif-to-expanse" title="Permalink to this heading">#</a></h3>
 <p>Navigate to the directory of the sif in a local terminal and use the following scp command to transfer the file to the supercomputer:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scp</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span> <span class="o">&lt;</span><span class="n">username</span><span class="o">&gt;</span><span class="nd">@login</span><span class="o">.</span><span class="n">expanse</span><span class="o">.</span><span class="n">sdsc</span><span class="o">.</span><span class="n">edu</span><span class="p">:</span><span class="o">/</span><span class="n">expanse</span><span class="o">/</span><span class="n">lustre</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">temp_project</span><span class="o">/</span><span class="n">rapids</span>
 </pre></div>
@@ -618,7 +618,7 @@ To make sure you enter a shell of the container use the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">singularity</span> <span class="n">shell</span> <span class="o">--</span><span class="n">nv</span> <span class="n">rapidsai</span><span class="o">.</span><span class="n">sif</span>
 </pre></div>
 </div>
-<p>You shoud see a prompt like this “singularity &gt;&gt;” which means you are inside the container now. you can now interactive with the container, or exit using exit.
+<p>You shoud see a prompt like this “singularity &gt;&gt;” which means you are inside the container now. you can now interact with the container, or exit using exit.
 First activate the rapids environment. without it none of the rapids libriaries load.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">activate</span> <span class="n">rapids</span>
 </pre></div>
@@ -627,6 +627,7 @@ First activate the rapids environment. without it none of the rapids libriaries 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nvidia</span><span class="o">-</span><span class="n">smi</span>
 </pre></div>
 </div>
+<p>You should see output with information like the GPU type, cuda drivers, etc. This confirms that rapids works in the container.</p>
 </section>
 </section>
 </section>
@@ -707,14 +708,14 @@ First activate the rapids environment. without it none of the rapids libriaries 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apptainer">Apptainer</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers">Running Containers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-containers-locally">Running Containers Locally</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-rebuilding-containers">Extending / Rebuilding Containers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-files">Definition Files</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-local-base-container">Building from a local base container</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-from-a-pulled-base-container">Building from a pulled base container</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-a-sif-to-expanse-and-running-it">Transferring a SIF to Expanse and running it.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-a-sif-to-expanse">Transferring a SIF to Expanse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-container-on-expanse">Running the container on Expanse</a></li>
 </ul>
 </li>
