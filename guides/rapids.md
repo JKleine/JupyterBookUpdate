@@ -44,7 +44,7 @@ apptainer shell rapidsai_23.04-cuda11.8-runtime-ubuntu22.04-py3.10.sif
 ## Singularity
 pull the container
 ```
-singularity build rapidsai.sif docker://rapidsai/rapidsai-core:23.06-cuda11.8-runtime-ubuntu22.04-py3.9
+singularity build rapidsai.sif docker://rapidsai/rapidsai-core:23.06-cuda11.8-runtime-ubuntu22.04-py3.10
 ```
 A list of available variants and their associated tags can be found here:
 [Docker Hub](https://hub.docker.com/r/rapidsai/rapidsai/tags)
@@ -57,11 +57,24 @@ A list of available variants and their associated tags can be found here:
 ### Running Containers
 run the container
 ```
-singularity run -nvcclii rapidsai.sif
+singularity run --nvccli rapidsai.sif
+```
+```{note}
+--nvccli tag is used for compatibility with WSL2, on newer systems and the supercomputer it can be replaced with nv
+```
+```
+singularity run --nv rapidsai.sif
+```
+```{note}
+Containers can run in two ways: Interactively, and uninteractively. When a container runs interactively, you will enter a prompt where you can interact with the file system. When it runs in noninteractive mode, you will not enter a prompt, but any output of the container will show, if you included scripts in the container, etc.
 ```
 once you are inside the container, be sure to activate the rapids environment:
 ```
 source activate rapids
+```
+this command also works:
+```
+. activate rapids
 ```
 ### Extending / Rebuilding Containers
 containers can be rebuilt and modified using definition files and the build command like so:
@@ -70,7 +83,7 @@ singularity build rapidsai.sif new.def
 ```
 ### Definition Files
 #### Building from a local base container
-The following is an example/template of a definition file that uses an existing local container as a base:
+The following is an example/template of a definition file that uses an existing local container as a base. It creates a workspace directory, then copies randomforest.py from the host system into the container:
 ```
 Bootstrap: localimage
 From: rapidsai2.sif
@@ -140,7 +153,6 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
     #apt-get install -y bzip2
     #apt-get install -y ca-certificates
     #apt-get install ffmpeg libsm6 libxext6  -y
-    #apt-get install -y nvidia-container-toolkit-base
     #ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
     #dpkg-reconfigure --frontend noninteractive tzdata
     #curl -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh  && \
@@ -156,7 +168,6 @@ From: nvcr.io/nvidia/rapidsai/rapidsai:21.08-cuda11.0-runtime-ubuntu20.04
     # It will then run start.sh
     sh /workspace/start.sh
     cd /workspace
-    source activate rapids
 
 %startscript
     nc -lp $LISTEN_PORT
